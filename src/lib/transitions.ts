@@ -142,6 +142,51 @@ export const timelineRevealTransition = {
   },
 } as const;
 
+export const contactCtaRevealTransition = {
+  item: {
+    hidden: { opacity: 0, y: 12 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: motion.duration.slow,
+        ease: motion.easing.enter,
+      },
+    },
+  },
+  container: {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: motion.stagger.normal,
+        delayChildren: 0.05,
+      },
+    },
+  },
+  buttons: {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: motion.stagger.fast,
+        delayChildren: 0,
+      },
+    },
+  },
+  button: {
+    hidden: { opacity: 0, y: 8 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: motion.duration.normal,
+        ease: motion.easing.enter,
+      },
+    },
+  },
+} as const;
+
 export const mobileMenuTransition = {
   overlay: {
     initial: { opacity: 0 },

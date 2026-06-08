@@ -22,6 +22,13 @@ export interface HeroContent {
   secondaryCta: HeroCta;
 }
 
+export interface ContactCtaContent {
+  headline: string;
+  supportingLines: string[];
+  primaryCta: HeroCta;
+  secondaryCta: HeroCta;
+}
+
 export interface MetricCountUp {
   from: number;
   to: number;
