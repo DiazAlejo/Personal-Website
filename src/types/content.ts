@@ -190,6 +190,49 @@ export interface ResumeEducation {
   minor?: string;
 }
 
+export interface ContactFormFieldLabels {
+  name: string;
+  email: string;
+  subject: string;
+  message: string;
+}
+
+export interface ContactFormValidationMessages {
+  required: string;
+  email: string;
+  nameMin: string;
+  subjectMin: string;
+  messageMin: string;
+}
+
+export interface ContactPageContent {
+  header: {
+    title: string;
+    subtitleLines: string[];
+  };
+  methods: {
+    title: string;
+  };
+  form: {
+    title: string;
+    fields: ContactFormFieldLabels;
+    placeholders: ContactFormFieldLabels;
+    submitLabel: string;
+    submittingLabel: string;
+    validation: ContactFormValidationMessages;
+    success: {
+      title: string;
+      lines: string[];
+      resetLabel: string;
+    };
+  };
+  availability: {
+    title: string;
+    intro: string;
+    items: string[];
+  };
+}
+
 export interface ResumeContent {
   header: ResumeHeader;
   summary: {
