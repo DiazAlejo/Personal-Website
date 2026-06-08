@@ -87,6 +87,57 @@ export interface Project {
   featured: boolean;
 }
 
+export interface CaseStudyArchitectureStep {
+  id: string;
+  label: string;
+}
+
+export interface CaseStudyImpactMetric {
+  id: string;
+  value: string;
+  label: string;
+}
+
+export interface CaseStudyNarrativeSection {
+  title: string;
+  paragraphs?: string[];
+  bullets?: string[];
+}
+
+export interface CaseStudyNavigation {
+  slug: string;
+  label: string;
+}
+
+export interface CaseStudy {
+  slug: string;
+  hero: {
+    title: string;
+    subtitle: string;
+    badges: string[];
+  };
+  overview: CaseStudyNarrativeSection;
+  problem: CaseStudyNarrativeSection;
+  solution: CaseStudyNarrativeSection;
+  architecture: {
+    title: string;
+    steps: CaseStudyArchitectureStep[];
+  };
+  impact: {
+    title: string;
+    metrics: CaseStudyImpactMetric[];
+  };
+  technologies: {
+    title: string;
+    items: string[];
+  };
+  highlights: {
+    title: string;
+    items: string[];
+  };
+  nextCaseStudy: CaseStudyNavigation;
+}
+
 export interface SocialLink {
   name: string;
   url: string;

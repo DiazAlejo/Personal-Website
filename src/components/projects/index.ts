@@ -1,3 +1,11 @@
+export { ArchitectureDiagram } from "./architecture-diagram";
+export { CaseStudyHero } from "./case-study-hero";
+export { CaseStudyHighlights } from "./case-study-highlights";
+export { CaseStudyNextNav } from "./case-study-next-nav";
+export { CaseStudySection } from "./case-study-section";
+export { CaseStudyTechStack } from "./case-study-tech-stack";
+export { CaseStudyView } from "./case-study-view";
 export { FeaturedProjectCard } from "./featured-project-card";
+export { ImpactGrid } from "./impact-grid";
 export { ProjectCard } from "./project-card";
 export { ProjectsGrid } from "./projects-grid";
