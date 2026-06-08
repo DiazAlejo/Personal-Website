@@ -1,17 +1,18 @@
 "use client";
+import { usePrefersReducedMotion } from "@/hooks/use-prefers-reduced-motion";
 
 import { MetricCard } from "@/components/sections/metric-card";
 import { Typography } from "@/components/ui/typography";
 import type { ResumeContent } from "@/types/content";
 import { metricsRevealTransition } from "@/lib/transitions";
-import { motion, useReducedMotion } from "framer-motion";
+import { motion } from "framer-motion";
 
 interface CareerHighlightsProps {
   highlights: ResumeContent["highlights"];
 }
 
 function CareerHighlights({ highlights }: CareerHighlightsProps) {
-  const prefersReducedMotion = useReducedMotion();
+  const prefersReducedMotion = usePrefersReducedMotion();
 
   const containerVariants = prefersReducedMotion
     ? { hidden: { opacity: 1 }, visible: { opacity: 1 } }

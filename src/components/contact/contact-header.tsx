@@ -1,17 +1,18 @@
 "use client";
+import { usePrefersReducedMotion } from "@/hooks/use-prefers-reduced-motion";
 
 import { Typography } from "@/components/ui/typography";
 import type { ContactPageContent } from "@/types/content";
 import { heroRevealTransition } from "@/lib/transitions";
 import { cn } from "@/lib/utils";
-import { motion, useReducedMotion } from "framer-motion";
+import { motion } from "framer-motion";
 
 interface ContactHeaderProps {
   header: ContactPageContent["header"];
 }
 
 function ContactHeader({ header }: ContactHeaderProps) {
-  const prefersReducedMotion = useReducedMotion();
+  const prefersReducedMotion = usePrefersReducedMotion();
 
   const containerVariants = prefersReducedMotion
     ? { hidden: { opacity: 1 }, visible: { opacity: 1 } }

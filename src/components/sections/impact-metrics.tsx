@@ -1,14 +1,15 @@
 "use client";
+import { usePrefersReducedMotion } from "@/hooks/use-prefers-reduced-motion";
 
 import { Container } from "@/components/layout/container";
 import { Section } from "@/components/layout/section";
 import { MetricCard } from "@/components/sections/metric-card";
 import { metrics } from "@/content/metrics";
 import { metricsRevealTransition } from "@/lib/transitions";
-import { motion, useReducedMotion } from "framer-motion";
+import { motion } from "framer-motion";
 
 function ImpactMetrics() {
-  const prefersReducedMotion = useReducedMotion();
+  const prefersReducedMotion = usePrefersReducedMotion();
 
   const containerVariants = prefersReducedMotion
     ? { hidden: { opacity: 1 }, visible: { opacity: 1 } }

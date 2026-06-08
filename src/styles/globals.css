@@ -50,8 +50,7 @@
   --color-sidebar-ring: var(--color-primary);
 
   --font-sans:
-    var(--font-geist-sans), var(--font-inter), ui-sans-serif, system-ui,
-    sans-serif;
+    var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
   --font-mono: var(--font-geist-mono), ui-monospace, monospace;
 
   --radius-sm: calc(var(--radius) * 0.6);
@@ -109,5 +108,16 @@
 
   :focus-visible {
     @apply outline-2 outline-offset-2 outline-ring;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
   }
 }

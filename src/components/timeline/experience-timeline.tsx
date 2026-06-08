@@ -1,4 +1,5 @@
 "use client";
+import { usePrefersReducedMotion } from "@/hooks/use-prefers-reduced-motion";
 
 import { Container } from "@/components/layout/container";
 import { Section } from "@/components/layout/section";
@@ -6,10 +7,10 @@ import { TimelineItem } from "@/components/timeline/timeline-item";
 import { Typography } from "@/components/ui/typography";
 import { experience, experienceSection } from "@/content/experience";
 import { timelineRevealTransition } from "@/lib/transitions";
-import { motion, useReducedMotion } from "framer-motion";
+import { motion } from "framer-motion";
 
 function ExperienceTimeline() {
-  const prefersReducedMotion = useReducedMotion();
+  const prefersReducedMotion = usePrefersReducedMotion();
 
   const containerVariants = prefersReducedMotion
     ? { hidden: { opacity: 1 }, visible: { opacity: 1 } }

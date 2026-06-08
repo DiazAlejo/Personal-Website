@@ -1,4 +1,5 @@
 "use client";
+import { usePrefersReducedMotion } from "@/hooks/use-prefers-reduced-motion";
 
 import {
   Card,
@@ -13,7 +14,7 @@ import { getContactMethods } from "@/lib/contact-methods";
 import { hoverPatterns } from "@/lib/hover";
 import { caseStudyRevealTransition } from "@/lib/transitions";
 import { cn } from "@/lib/utils";
-import { motion, useReducedMotion } from "framer-motion";
+import { motion } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
 
 interface ContactMethodsProps {
@@ -21,7 +22,7 @@ interface ContactMethodsProps {
 }
 
 function ContactMethods({ methods }: ContactMethodsProps) {
-  const prefersReducedMotion = useReducedMotion();
+  const prefersReducedMotion = usePrefersReducedMotion();
   const contactMethods = getContactMethods();
 
   const containerVariants = prefersReducedMotion

@@ -1,4 +1,5 @@
 "use client";
+import { usePrefersReducedMotion } from "@/hooks/use-prefers-reduced-motion";
 
 import { Card, CardContent } from "@/components/ui/card";
 import { Typography } from "@/components/ui/typography";
@@ -6,7 +7,7 @@ import { hoverPatterns } from "@/lib/hover";
 import { caseStudyRevealTransition } from "@/lib/transitions";
 import { cn } from "@/lib/utils";
 import type { CaseStudyImpactMetric } from "@/types/content";
-import { motion, useReducedMotion } from "framer-motion";
+import { motion } from "framer-motion";
 
 interface ImpactGridProps {
   title: string;
@@ -14,7 +15,7 @@ interface ImpactGridProps {
 }
 
 function ImpactGrid({ title, metrics }: ImpactGridProps) {
-  const prefersReducedMotion = useReducedMotion();
+  const prefersReducedMotion = usePrefersReducedMotion();
 
   const containerVariants = prefersReducedMotion
     ? { hidden: { opacity: 1 }, visible: { opacity: 1 } }

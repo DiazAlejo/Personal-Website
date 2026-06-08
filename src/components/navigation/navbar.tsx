@@ -28,7 +28,7 @@ function Navbar() {
         >
           <Link
             href="/"
-            className="text-small font-medium text-text-primary transition-colors duration-normal ease-default hover:text-text-primary"
+            className="rounded-md text-small font-medium text-text-primary transition-colors duration-normal ease-default hover:text-text-primary focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring"
           >
             {site.domain}
           </Link>

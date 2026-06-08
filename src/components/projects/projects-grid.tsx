@@ -1,20 +1,22 @@
 "use client";
 
 import { ProjectCard } from "@/components/projects/project-card";
+import { EmptyState } from "@/components/shared/empty-state";
 import { Button } from "@/components/ui/button";
-import { Typography } from "@/components/ui/typography";
+import { emptyStateContent } from "@/content/ui-states";
 import { projects } from "@/content/projects";
 import { projectCategories, projectsPage } from "@/content/projects-page";
+import { usePrefersReducedMotion } from "@/hooks/use-prefers-reduced-motion";
 import { projectsGridRevealTransition } from "@/lib/transitions";
 import type { ProjectCategory } from "@/types/content";
-import { motion, useReducedMotion } from "framer-motion";
+import { motion } from "framer-motion";
 import { useMemo, useState } from "react";
 
 type ProjectFilter = "all" | ProjectCategory;
 
 function ProjectsGrid() {
   const [activeFilter, setActiveFilter] = useState<ProjectFilter>("all");
-  const prefersReducedMotion = useReducedMotion();
+  const prefersReducedMotion = usePrefersReducedMotion();
 
   const filteredProjects = useMemo(() => {
     if (activeFilter === "all") {
@@ -64,12 +66,10 @@ function ProjectsGrid() {
       </div>
 
       {filteredProjects.length === 0 ? (
-        <Typography
-          variant="body"
-          className="py-section-y text-center text-text-secondary"
-        >
-          {projectsPage.emptyStateMessage}
-        </Typography>
+        <EmptyState
+          title={emptyStateContent.projects.title}
+          description={projectsPage.emptyStateMessage}
+        />
       ) : (
         <motion.div
           key={activeFilter}

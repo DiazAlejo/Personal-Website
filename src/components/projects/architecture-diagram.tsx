@@ -1,9 +1,10 @@
 "use client";
+import { usePrefersReducedMotion } from "@/hooks/use-prefers-reduced-motion";
 
 import { Typography } from "@/components/ui/typography";
 import { caseStudyRevealTransition } from "@/lib/transitions";
 import type { CaseStudyArchitectureStep } from "@/types/content";
-import { motion, useReducedMotion } from "framer-motion";
+import { motion } from "framer-motion";
 import { ArrowDown } from "lucide-react";
 
 interface ArchitectureDiagramProps {
@@ -17,7 +18,7 @@ function ArchitectureDiagram({
   steps,
   ariaLabel = "System architecture flow",
 }: ArchitectureDiagramProps) {
-  const prefersReducedMotion = useReducedMotion();
+  const prefersReducedMotion = usePrefersReducedMotion();
 
   const containerVariants = prefersReducedMotion
     ? { hidden: { opacity: 1 }, visible: { opacity: 1 } }

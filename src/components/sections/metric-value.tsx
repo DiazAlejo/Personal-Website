@@ -1,9 +1,10 @@
 "use client";
+import { usePrefersReducedMotion } from "@/hooks/use-prefers-reduced-motion";
 
 import { formatCountUpValue } from "@/lib/format-metric";
 import { motion as motionConfig } from "@/lib/motion";
 import type { Metric } from "@/types/content";
-import { animate, useInView, useReducedMotion } from "framer-motion";
+import { animate, useInView } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 
 interface MetricValueProps {
@@ -13,7 +14,7 @@ interface MetricValueProps {
 function MetricValue({ metric }: MetricValueProps) {
   const ref = useRef<HTMLSpanElement>(null);
   const isInView = useInView(ref, { once: true, margin: "-80px" });
-  const prefersReducedMotion = useReducedMotion();
+  const prefersReducedMotion = usePrefersReducedMotion();
   const [display, setDisplay] = useState(metric.value);
 
   useEffect(() => {

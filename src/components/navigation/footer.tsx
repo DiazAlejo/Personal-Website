@@ -33,7 +33,7 @@ function Footer() {
                   <li key={item.href}>
                     <Link
                       href={item.href}
-                      className="text-small text-text-secondary transition-colors duration-normal ease-default hover:text-text-primary"
+                      className="rounded-md text-small text-text-secondary transition-colors duration-normal ease-default hover:text-text-primary focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring"
                     >
                       {item.label}
                     </Link>
@@ -54,7 +54,7 @@ function Footer() {
                       target="_blank"
                       rel="noopener noreferrer"
                       aria-label={link.label}
-                      className="text-small text-text-secondary transition-colors duration-normal ease-default hover:text-text-primary"
+                      className="rounded-md text-small text-text-secondary transition-colors duration-normal ease-default hover:text-text-primary focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring"
                     >
                       {link.name}
                     </a>

@@ -1,4 +1,5 @@
 "use client";
+import { usePrefersReducedMotion } from "@/hooks/use-prefers-reduced-motion";
 
 import { Container } from "@/components/layout/container";
 import { Section } from "@/components/layout/section";
@@ -8,12 +9,12 @@ import { contactCta } from "@/content/contact-cta";
 import { hoverPatterns } from "@/lib/hover";
 import { getSocialLinks } from "@/lib/socials";
 import { contactCtaRevealTransition } from "@/lib/transitions";
-import { motion, useReducedMotion } from "framer-motion";
+import { motion } from "framer-motion";
 import { ArrowRight, FileText } from "lucide-react";
 import Link from "next/link";
 
 function ContactCTA() {
-  const prefersReducedMotion = useReducedMotion();
+  const prefersReducedMotion = usePrefersReducedMotion();
   const socialLinks = getSocialLinks();
 
   const containerVariants = prefersReducedMotion

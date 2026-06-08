@@ -1,18 +1,19 @@
 "use client";
+import { usePrefersReducedMotion } from "@/hooks/use-prefers-reduced-motion";
 
 import { Badge } from "@/components/ui/badge";
 import { Typography } from "@/components/ui/typography";
 import { heroRevealTransition } from "@/lib/transitions";
 import { cn } from "@/lib/utils";
 import type { CaseStudy } from "@/types/content";
-import { motion, useReducedMotion } from "framer-motion";
+import { motion } from "framer-motion";
 
 interface CaseStudyHeroProps {
   hero: CaseStudy["hero"];
 }
 
 function CaseStudyHero({ hero }: CaseStudyHeroProps) {
-  const prefersReducedMotion = useReducedMotion();
+  const prefersReducedMotion = usePrefersReducedMotion();
 
   const containerVariants = prefersReducedMotion
     ? { hidden: { opacity: 1 }, visible: { opacity: 1 } }

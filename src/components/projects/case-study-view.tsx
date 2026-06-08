@@ -2,8 +2,23 @@
 
 import { Container } from "@/components/layout/container";
 import { Section } from "@/components/layout/section";
-import { ArchitectureDiagram } from "@/components/projects/architecture-diagram";
 import { CaseStudyHero } from "@/components/projects/case-study-hero";
+import dynamic from "next/dynamic";
+
+const ArchitectureDiagram = dynamic(
+  () =>
+    import("@/components/projects/architecture-diagram").then(
+      (mod) => mod.ArchitectureDiagram,
+    ),
+  {
+    loading: () => (
+      <div
+        aria-hidden="true"
+        className="min-h-[24rem] rounded-lg border border-border bg-surface/40"
+      />
+    ),
+  },
+);
 import { CaseStudyHighlights } from "@/components/projects/case-study-highlights";
 import { CaseStudyNextNav } from "@/components/projects/case-study-next-nav";
 import { CaseStudySection } from "@/components/projects/case-study-section";

@@ -1,16 +1,17 @@
 "use client";
+import { usePrefersReducedMotion } from "@/hooks/use-prefers-reduced-motion";
 
 import { Typography } from "@/components/ui/typography";
 import { caseStudyRevealTransition } from "@/lib/transitions";
 import type { CaseStudyNarrativeSection } from "@/types/content";
-import { motion, useReducedMotion } from "framer-motion";
+import { motion } from "framer-motion";
 
 interface CaseStudySectionProps {
   section: CaseStudyNarrativeSection;
 }
 
 function CaseStudySection({ section }: CaseStudySectionProps) {
-  const prefersReducedMotion = useReducedMotion();
+  const prefersReducedMotion = usePrefersReducedMotion();
 
   const variants = prefersReducedMotion
     ? { hidden: { opacity: 1, y: 0 }, visible: { opacity: 1, y: 0 } }

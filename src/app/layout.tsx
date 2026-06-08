@@ -3,21 +3,19 @@ import { GlobalStructuredData } from "@/components/seo/global-structured-data";
 import "@/styles/globals.css";
 import { createRootMetadata } from "@/lib/seo/metadata";
 import { Geist, Geist_Mono } from "next/font/google";
-import { Inter } from "next/font/google";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
+  display: "swap",
+  preload: true,
 });
 
 const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
   subsets: ["latin"],
-});
-
-const inter = Inter({
-  variable: "--font-inter",
-  subsets: ["latin"],
+  display: "swap",
+  preload: false,
 });
 
 export const metadata = createRootMetadata();
@@ -30,7 +28,7 @@ export default function RootLayout({
   return (
     <html lang="en" className="dark">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} ${inter.variable} min-h-screen bg-background text-foreground antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} min-h-screen bg-background text-foreground antialiased`}
       >
         <GlobalStructuredData />
         <AppShell>{children}</AppShell>

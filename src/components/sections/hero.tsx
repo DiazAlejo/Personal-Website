@@ -1,5 +1,3 @@
-"use client";
-
 import { Container } from "@/components/layout/container";
 import { Section } from "@/components/layout/section";
 import { Button } from "@/components/ui/button";
@@ -7,9 +5,7 @@ import { Typography } from "@/components/ui/typography";
 import { hero } from "@/content/hero";
 import { site } from "@/content/site";
 import { hoverPatterns } from "@/lib/hover";
-import { heroRevealTransition } from "@/lib/transitions";
 import { cn } from "@/lib/utils";
-import { motion, useReducedMotion } from "framer-motion";
 import { ArrowRight, Download } from "lucide-react";
 import Link from "next/link";
 
@@ -26,16 +22,6 @@ function HeroBackground() {
 }
 
 function Hero() {
-  const prefersReducedMotion = useReducedMotion();
-
-  const containerVariants = prefersReducedMotion
-    ? { hidden: { opacity: 1 }, visible: { opacity: 1 } }
-    : heroRevealTransition.container;
-
-  const itemVariants = prefersReducedMotion
-    ? { hidden: { opacity: 1, y: 0 }, visible: { opacity: 1, y: 0 } }
-    : heroRevealTransition.item;
-
   return (
     <Section
       aria-labelledby="hero-headline"
@@ -48,13 +34,8 @@ function Hero() {
       <HeroBackground />
 
       <Container>
-        <motion.div
-          className="relative max-w-3xl"
-          variants={containerVariants}
-          initial="hidden"
-          animate="visible"
-        >
-          <motion.div variants={itemVariants}>
+        <div className="relative max-w-3xl">
+          <div className="animate-fade-up">
             <Typography
               variant="small"
               as="p"
@@ -62,27 +43,24 @@ function Hero() {
             >
               {site.name}
             </Typography>
-          </motion.div>
+          </div>
 
-          <motion.div variants={itemVariants} className="mt-element-md">
+          <div className="animate-fade-up animation-delay-100 mt-element-md">
             <Typography variant="hero" id="hero-headline">
               {site.headline}
             </Typography>
-          </motion.div>
+          </div>
 
-          <motion.div variants={itemVariants} className="mt-element-lg">
+          <div className="animate-fade-up animation-delay-200 mt-element-lg">
             <Typography
               variant="body"
               className="max-w-2xl text-text-secondary"
             >
               {site.supportingStatement}
             </Typography>
-          </motion.div>
+          </div>
 
-          <motion.div
-            variants={itemVariants}
-            className="mt-element-xl flex flex-col gap-element-sm sm:flex-row sm:items-center"
-          >
+          <div className="animate-fade-up animation-delay-300 mt-element-xl flex flex-col gap-element-sm sm:flex-row sm:items-center">
             <Button
               asChild
               variant="primary"
@@ -106,8 +84,8 @@ function Hero() {
                 {hero.secondaryCta.label}
               </Link>
             </Button>
-          </motion.div>
-        </motion.div>
+          </div>
+        </div>
       </Container>
     </Section>
   );

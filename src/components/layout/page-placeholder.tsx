@@ -1,6 +1,8 @@
 import { Container } from "@/components/layout/container";
 import { Section } from "@/components/layout/section";
+import { EmptyState } from "@/components/shared/empty-state";
 import { Typography } from "@/components/ui/typography";
+import { emptyStateContent } from "@/content/ui-states";
 
 interface PagePlaceholderProps {
   title: string;
@@ -13,12 +15,11 @@ function PagePlaceholder({ title, description }: PagePlaceholderProps) {
       <Container>
         <Typography variant="h1">{title}</Typography>
         {description ? (
-          <Typography
-            variant="body"
-            className="mt-element max-w-2xl text-text-secondary"
-          >
-            {description}
-          </Typography>
+          <EmptyState
+            title={emptyStateContent.caseStudy.title}
+            description={description}
+            className="mt-element-xl max-w-2xl"
+          />
         ) : null}
       </Container>
     </Section>

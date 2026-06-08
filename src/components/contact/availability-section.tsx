@@ -1,17 +1,18 @@
 "use client";
+import { usePrefersReducedMotion } from "@/hooks/use-prefers-reduced-motion";
 
 import { Badge } from "@/components/ui/badge";
 import { Typography } from "@/components/ui/typography";
 import type { ContactPageContent } from "@/types/content";
 import { caseStudyRevealTransition } from "@/lib/transitions";
-import { motion, useReducedMotion } from "framer-motion";
+import { motion } from "framer-motion";
 
 interface AvailabilitySectionProps {
   availability: ContactPageContent["availability"];
 }
 
 function AvailabilitySection({ availability }: AvailabilitySectionProps) {
-  const prefersReducedMotion = useReducedMotion();
+  const prefersReducedMotion = usePrefersReducedMotion();
 
   const variants = prefersReducedMotion
     ? { hidden: { opacity: 1, y: 0 }, visible: { opacity: 1, y: 0 } }

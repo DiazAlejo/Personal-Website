@@ -6,7 +6,8 @@ import { navigation } from "@/content/navigation";
 import { useLockBodyScroll } from "@/hooks/use-lock-body-scroll";
 import { mobileMenuTransition } from "@/lib/transitions";
 import { cn } from "@/lib/utils";
-import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
+import { usePrefersReducedMotion } from "@/hooks/use-prefers-reduced-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import { useCallback, useEffect, useId, useRef, useState } from "react";
 
@@ -16,7 +17,7 @@ function MobileMenu() {
   const [isOpen, setIsOpen] = useState(false);
   const menuButtonRef = useRef<HTMLButtonElement>(null);
   const menuPanelRef = useRef<HTMLDivElement>(null);
-  const prefersReducedMotion = useReducedMotion();
+  const prefersReducedMotion = usePrefersReducedMotion();
   const buttonId = useId();
 
   useLockBodyScroll(isOpen);
@@ -134,7 +135,7 @@ function MobileMenu() {
               id={MENU_ID}
               role="dialog"
               aria-modal="true"
-              aria-labelledby={buttonId}
+              aria-label="Mobile navigation menu"
               className={cn(
                 "fixed inset-x-0 top-14 z-40 border-b border-border",
                 "bg-background/95 px-container-x py-element-lg backdrop-blur-md",

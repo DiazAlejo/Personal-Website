@@ -1,17 +1,18 @@
 "use client";
+import { usePrefersReducedMotion } from "@/hooks/use-prefers-reduced-motion";
 
 import { Typography } from "@/components/ui/typography";
 import type { ResumeContent } from "@/types/content";
 import { timelineRevealTransition } from "@/lib/transitions";
 import { cn } from "@/lib/utils";
-import { motion, useReducedMotion } from "framer-motion";
+import { motion } from "framer-motion";
 
 interface ExperienceSummaryProps {
   experience: ResumeContent["experience"];
 }
 
 function ExperienceSummary({ experience }: ExperienceSummaryProps) {
-  const prefersReducedMotion = useReducedMotion();
+  const prefersReducedMotion = usePrefersReducedMotion();
 
   const containerVariants = prefersReducedMotion
     ? { hidden: { opacity: 1 }, visible: { opacity: 1 } }

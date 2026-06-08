@@ -1,11 +1,12 @@
 "use client";
+import { usePrefersReducedMotion } from "@/hooks/use-prefers-reduced-motion";
 
 import { Divider } from "@/components/ui/divider";
 import { Typography } from "@/components/ui/typography";
 import { getProjectPath } from "@/lib/projects";
 import { caseStudyRevealTransition } from "@/lib/transitions";
 import type { CaseStudyNavigation } from "@/types/content";
-import { motion, useReducedMotion } from "framer-motion";
+import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import Link from "next/link";
 
@@ -14,7 +15,7 @@ interface CaseStudyNextNavProps {
 }
 
 function CaseStudyNextNav({ nextCaseStudy }: CaseStudyNextNavProps) {
-  const prefersReducedMotion = useReducedMotion();
+  const prefersReducedMotion = usePrefersReducedMotion();
 
   const variants = prefersReducedMotion
     ? { hidden: { opacity: 1, y: 0 }, visible: { opacity: 1, y: 0 } }

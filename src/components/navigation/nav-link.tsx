@@ -28,7 +28,8 @@ function NavLink({
       onClick={onNavigate}
       aria-current={isActive ? "page" : undefined}
       className={cn(
-        "transition-colors duration-normal ease-default",
+        "rounded-md transition-colors duration-normal ease-default",
+        "focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring",
         mobile
           ? "block py-element-sm text-h3"
           : "text-small hover:text-text-primary",

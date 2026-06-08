@@ -1,4 +1,5 @@
 "use client";
+import { usePrefersReducedMotion } from "@/hooks/use-prefers-reduced-motion";
 
 import { Button } from "@/components/ui/button";
 import { Typography } from "@/components/ui/typography";
@@ -6,7 +7,7 @@ import type { ResumeHeader as ResumeHeaderContent } from "@/types/content";
 import { hoverPatterns } from "@/lib/hover";
 import { heroRevealTransition } from "@/lib/transitions";
 import { cn } from "@/lib/utils";
-import { motion, useReducedMotion } from "framer-motion";
+import { motion } from "framer-motion";
 import { ArrowRight, Download } from "lucide-react";
 import Link from "next/link";
 
@@ -15,7 +16,7 @@ interface ResumeHeaderProps {
 }
 
 function ResumeHeader({ header }: ResumeHeaderProps) {
-  const prefersReducedMotion = useReducedMotion();
+  const prefersReducedMotion = usePrefersReducedMotion();
 
   const containerVariants = prefersReducedMotion
     ? { hidden: { opacity: 1 }, visible: { opacity: 1 } }

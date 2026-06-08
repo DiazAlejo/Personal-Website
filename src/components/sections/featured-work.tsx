@@ -1,4 +1,5 @@
 "use client";
+import { usePrefersReducedMotion } from "@/hooks/use-prefers-reduced-motion";
 
 import { Container } from "@/components/layout/container";
 import { Section } from "@/components/layout/section";
@@ -7,10 +8,10 @@ import { Typography } from "@/components/ui/typography";
 import { featuredWork } from "@/content/featured-work";
 import { featuredProjects } from "@/content/projects";
 import { featuredWorkRevealTransition } from "@/lib/transitions";
-import { motion, useReducedMotion } from "framer-motion";
+import { motion } from "framer-motion";
 
 function FeaturedWork() {
-  const prefersReducedMotion = useReducedMotion();
+  const prefersReducedMotion = usePrefersReducedMotion();
 
   const containerVariants = prefersReducedMotion
     ? { hidden: { opacity: 1 }, visible: { opacity: 1 } }
