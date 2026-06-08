@@ -1,3 +1,4 @@
+import { AnalyticsShell } from "@/components/analytics/analytics-shell";
 import { PageTransition } from "@/components/layout/page-transition";
 import { Footer, Navbar } from "@/components/navigation";
 import { ErrorBoundary } from "@/components/shared/error-boundary";
@@ -9,14 +10,16 @@ interface AppShellProps {
 
 function AppShell({ children }: AppShellProps) {
   return (
-    <div className="flex min-h-screen flex-col">
-      <SkipLink />
-      <Navbar />
-      <ErrorBoundary>
-        <PageTransition>{children}</PageTransition>
-      </ErrorBoundary>
-      <Footer />
-    </div>
+    <AnalyticsShell>
+      <div className="flex min-h-screen flex-col">
+        <SkipLink />
+        <Navbar />
+        <ErrorBoundary>
+          <PageTransition>{children}</PageTransition>
+        </ErrorBoundary>
+        <Footer />
+      </div>
+    </AnalyticsShell>
   );
 }
 

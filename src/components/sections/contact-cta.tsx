@@ -6,6 +6,7 @@ import { Section } from "@/components/layout/section";
 import { Button } from "@/components/ui/button";
 import { Typography } from "@/components/ui/typography";
 import { contactCta } from "@/content/contact-cta";
+import { trackContactClicked, trackExternalSocialClick } from "@/lib/analytics/analytics";
 import { hoverPatterns } from "@/lib/hover";
 import { getSocialLinks } from "@/lib/socials";
 import { contactCtaRevealTransition } from "@/lib/transitions";
@@ -78,7 +79,10 @@ function ContactCTA() {
                 size="lg"
                 className={`w-full sm:w-auto ${hoverPatterns.elevation}`}
               >
-                <Link href={contactCta.primaryCta.href}>
+                <Link
+                  href={contactCta.primaryCta.href}
+                  onClick={() => trackContactClicked("homepage_cta")}
+                >
                   {contactCta.primaryCta.label}
                   <ArrowRight aria-hidden="true" />
                 </Link>
@@ -116,6 +120,9 @@ function ContactCTA() {
                     : "noopener noreferrer"
                 }
                 aria-label={link.label}
+                onClick={() =>
+                  trackExternalSocialClick(link.name, "homepage_cta")
+                }
                 className="text-small text-text-secondary transition-colors duration-normal ease-default hover:text-text-primary focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring"
               >
                 {link.name}

@@ -10,6 +10,7 @@ import {
 } from "@/components/ui/card";
 import { Typography } from "@/components/ui/typography";
 import type { ContactPageContent } from "@/types/content";
+import { trackContactClicked, trackExternalSocialClick } from "@/lib/analytics/analytics";
 import { getContactMethods } from "@/lib/contact-methods";
 import { hoverPatterns } from "@/lib/hover";
 import { caseStudyRevealTransition } from "@/lib/transitions";
@@ -62,6 +63,14 @@ function ContactMethods({ methods }: ContactMethodsProps) {
                     : "noopener noreferrer"
                 }
                 aria-label={method.label}
+                onClick={() => {
+                  if (method.name === "Email") {
+                    trackContactClicked("contact_page");
+                    return;
+                  }
+
+                  trackExternalSocialClick(method.name, "contact_page");
+                }}
                 className={cn(
                   "group block rounded-xl outline-none focus-visible:ring-[3px] focus-visible:ring-ring/50",
                 )}

@@ -2,6 +2,7 @@
 
 import { ErrorFallback } from "@/components/shared/error-fallback";
 import { errorContent } from "@/content/ui-states";
+import { captureException } from "@/lib/monitoring/sentry";
 import { Component, type ErrorInfo, type ReactNode } from "react";
 
 interface ErrorBoundaryProps {
@@ -23,6 +24,9 @@ class ErrorBoundary extends Component<ErrorBoundaryProps, ErrorBoundaryState> {
 
   componentDidCatch(error: Error, errorInfo: ErrorInfo) {
     console.error("Application error boundary caught an error:", error, errorInfo);
+    void captureException(error, {
+      componentStack: errorInfo.componentStack ?? "unknown",
+    });
   }
 
   handleRetry = () => {

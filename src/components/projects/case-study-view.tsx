@@ -2,6 +2,7 @@
 
 import { Container } from "@/components/layout/container";
 import { Section } from "@/components/layout/section";
+import { CaseStudyCompletionTracker } from "@/components/analytics/case-study-completion-tracker";
 import { CaseStudyHero } from "@/components/projects/case-study-hero";
 import dynamic from "next/dynamic";
 
@@ -101,6 +102,7 @@ function CaseStudyView({ caseStudy }: CaseStudyViewProps) {
           />
           <CaseStudyTailSections caseStudy={caseStudy} />
           <CaseStudyNextNav nextCaseStudy={caseStudy.nextCaseStudy} />
+          <CaseStudyCompletionTracker projectSlug={caseStudy.slug} />
         </Container>
       </Section>
     </article>

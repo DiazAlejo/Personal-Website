@@ -4,6 +4,7 @@ import { usePrefersReducedMotion } from "@/hooks/use-prefers-reduced-motion";
 import { Button } from "@/components/ui/button";
 import { Typography } from "@/components/ui/typography";
 import type { ResumeHeader as ResumeHeaderContent } from "@/types/content";
+import { trackResumeDownload } from "@/lib/analytics/analytics";
 import { hoverPatterns } from "@/lib/hover";
 import { heroRevealTransition } from "@/lib/transitions";
 import { cn } from "@/lib/utils";
@@ -72,6 +73,7 @@ function ResumeHeader({ header }: ResumeHeaderProps) {
             <a
               href={header.primaryAction.href}
               download={header.primaryAction.download}
+              onClick={() => trackResumeDownload("resume")}
             >
               <Download aria-hidden="true" />
               {header.primaryAction.label}

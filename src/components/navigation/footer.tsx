@@ -1,9 +1,12 @@
+"use client";
+
 import { Container } from "@/components/layout/container";
 import { Divider } from "@/components/ui/divider";
 import { Typography } from "@/components/ui/typography";
 import { navigation } from "@/content/navigation";
 import { site } from "@/content/site";
 import { socials } from "@/content/socials";
+import { trackExternalSocialClick } from "@/lib/analytics/analytics";
 import Link from "next/link";
 
 function Footer() {
@@ -54,6 +57,9 @@ function Footer() {
                       target="_blank"
                       rel="noopener noreferrer"
                       aria-label={link.label}
+                      onClick={() =>
+                        trackExternalSocialClick(link.name, "footer")
+                      }
                       className="rounded-md text-small text-text-secondary transition-colors duration-normal ease-default hover:text-text-primary focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring"
                     >
                       {link.name}
