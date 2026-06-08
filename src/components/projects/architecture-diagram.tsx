@@ -9,9 +9,14 @@ import { ArrowDown } from "lucide-react";
 interface ArchitectureDiagramProps {
   title: string;
   steps: CaseStudyArchitectureStep[];
+  ariaLabel?: string;
 }
 
-function ArchitectureDiagram({ title, steps }: ArchitectureDiagramProps) {
+function ArchitectureDiagram({
+  title,
+  steps,
+  ariaLabel = "System architecture flow",
+}: ArchitectureDiagramProps) {
   const prefersReducedMotion = useReducedMotion();
 
   const containerVariants = prefersReducedMotion
@@ -30,7 +35,7 @@ function ArchitectureDiagram({ title, steps }: ArchitectureDiagramProps) {
 
       <motion.ol
         className="mx-auto flex max-w-md list-none flex-col items-center"
-        aria-label="System architecture flow"
+        aria-label={ariaLabel}
         variants={containerVariants}
         initial="hidden"
         whileInView="visible"

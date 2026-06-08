@@ -15,6 +15,58 @@ interface CaseStudyViewProps {
   caseStudy: CaseStudy;
 }
 
+function CaseStudyTailSections({ caseStudy }: { caseStudy: CaseStudy }) {
+  const order = caseStudy.sectionOrder ?? "impact-technologies-highlights";
+
+  const impact = (
+    <ImpactGrid
+      title={caseStudy.impact.title}
+      metrics={caseStudy.impact.metrics}
+    />
+  );
+
+  const highlights = (
+    <CaseStudyHighlights
+      title={caseStudy.highlights.title}
+      items={caseStudy.highlights.items}
+    />
+  );
+
+  const technologies = (
+    <CaseStudyTechStack
+      title={caseStudy.technologies.title}
+      items={caseStudy.technologies.items}
+    />
+  );
+
+  switch (order) {
+    case "impact-highlights-technologies":
+      return (
+        <>
+          {impact}
+          {highlights}
+          {technologies}
+        </>
+      );
+    case "highlights-technologies-impact":
+      return (
+        <>
+          {highlights}
+          {technologies}
+          {impact}
+        </>
+      );
+    default:
+      return (
+        <>
+          {impact}
+          {technologies}
+          {highlights}
+        </>
+      );
+  }
+}
+
 function CaseStudyView({ caseStudy }: CaseStudyViewProps) {
   return (
     <article>
@@ -30,34 +82,9 @@ function CaseStudyView({ caseStudy }: CaseStudyViewProps) {
           <ArchitectureDiagram
             title={caseStudy.architecture.title}
             steps={caseStudy.architecture.steps}
+            ariaLabel={caseStudy.architecture.ariaLabel}
           />
-          <ImpactGrid
-            title={caseStudy.impact.title}
-            metrics={caseStudy.impact.metrics}
-          />
-          {caseStudy.highlightsBeforeTechnologies ? (
-            <>
-              <CaseStudyHighlights
-                title={caseStudy.highlights.title}
-                items={caseStudy.highlights.items}
-              />
-              <CaseStudyTechStack
-                title={caseStudy.technologies.title}
-                items={caseStudy.technologies.items}
-              />
-            </>
-          ) : (
-            <>
-              <CaseStudyTechStack
-                title={caseStudy.technologies.title}
-                items={caseStudy.technologies.items}
-              />
-              <CaseStudyHighlights
-                title={caseStudy.highlights.title}
-                items={caseStudy.highlights.items}
-              />
-            </>
-          )}
+          <CaseStudyTailSections caseStudy={caseStudy} />
           <CaseStudyNextNav nextCaseStudy={caseStudy.nextCaseStudy} />
         </Container>
       </Section>

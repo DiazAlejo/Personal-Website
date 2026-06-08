@@ -1,10 +1,12 @@
 import { aiResumePipelineCaseStudy } from "@/content/case-studies/ai-resume-pipeline";
+import { onboardosCaseStudy } from "@/content/case-studies/onboardos";
 import { waterForecastingCaseStudy } from "@/content/case-studies/water-forecasting-platform";
 import type { CaseStudy } from "@/types/content";
 
 const caseStudies: Record<string, CaseStudy> = {
   [aiResumePipelineCaseStudy.slug]: aiResumePipelineCaseStudy,
   [waterForecastingCaseStudy.slug]: waterForecastingCaseStudy,
+  [onboardosCaseStudy.slug]: onboardosCaseStudy,
 };
 
 export function getCaseStudyBySlug(slug: string): CaseStudy | undefined {

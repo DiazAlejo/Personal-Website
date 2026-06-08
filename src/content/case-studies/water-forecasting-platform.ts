@@ -111,5 +111,5 @@ export const waterForecastingCaseStudy: CaseStudy = {
     slug: "onboardos",
     label: "Next Case Study",
   },
-  highlightsBeforeTechnologies: true,
+  sectionOrder: "impact-highlights-technologies",
 };

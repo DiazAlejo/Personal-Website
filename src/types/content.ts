@@ -109,6 +109,11 @@ export interface CaseStudyNavigation {
   label: string;
 }
 
+export type CaseStudySectionOrder =
+  | "impact-technologies-highlights"
+  | "impact-highlights-technologies"
+  | "highlights-technologies-impact";
+
 export interface CaseStudy {
   slug: string;
   hero: {
@@ -122,6 +127,7 @@ export interface CaseStudy {
   architecture: {
     title: string;
     steps: CaseStudyArchitectureStep[];
+    ariaLabel?: string;
   };
   impact: {
     title: string;
@@ -136,7 +142,7 @@ export interface CaseStudy {
     items: string[];
   };
   nextCaseStudy: CaseStudyNavigation;
-  highlightsBeforeTechnologies?: boolean;
+  sectionOrder?: CaseStudySectionOrder;
 }
 
 export interface SocialLink {
