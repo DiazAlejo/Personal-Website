@@ -233,11 +233,24 @@ export interface ContactPageContent {
   };
 }
 
+export interface ResumeProjectEntry {
+  id: string;
+  title: string;
+  impact: string;
+  description: string;
+  technologies: string[];
+  href?: string;
+}
+
 export interface ResumeContent {
   header: ResumeHeader;
   summary: {
     title: string;
     paragraphs: string[];
+  };
+  selectedProjects: {
+    title: string;
+    entries: ResumeProjectEntry[];
   };
   experience: {
     title: string;

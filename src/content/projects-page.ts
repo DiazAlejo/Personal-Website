@@ -3,7 +3,7 @@ import type { ProjectCategory, ProjectsPageContent } from "@/types/content";
 export const projectsPage: ProjectsPageContent = {
   title: "Projects",
   description:
-    "A collection of production systems, AI platforms, automation tools, and software engineering projects.",
+    "Production systems, AI platforms, ML forecasting pipelines, and full-stack engineering — built for enterprise scale and measurable business impact.",
   ctaLabel: "View Case Study",
   emptyStateMessage: "No projects available.",
   filterAllLabel: "All",

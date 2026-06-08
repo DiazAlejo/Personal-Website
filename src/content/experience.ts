@@ -6,7 +6,7 @@ import type {
 export const experienceSection: ExperienceSectionContent = {
   title: "Experience",
   description:
-    "Professional experience building software, AI systems, and data platforms.",
+    "Enterprise software engineering at Jacobs Engineering — AI systems, machine learning pipelines, data platforms, and full-stack application development.",
 };
 
 export const experience: ExperienceEntry[] = [

@@ -31,7 +31,7 @@ export const emptyStateContent = {
     description: "Content for this section is not available right now.",
   },
   caseStudy: {
-    title: "Case study coming soon",
+    title: "Project Overview",
   },
 };
 

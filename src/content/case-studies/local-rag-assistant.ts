@@ -5,42 +5,40 @@ export const localRagAssistantCaseStudy: CaseStudy = {
   hero: {
     title: "Local RAG Assistant",
     subtitle:
-      "Private document intelligence powered by local LLMs and retrieval-augmented generation.",
-    badges: ["AI", "RAG", "Docker", "Personal Project", "2025"],
+      "Private document intelligence with local LLM inference and REST API access.",
+    badges: ["AI", "RAG", "Docker", "2025"],
   },
   overview: {
     title: "Overview",
     paragraphs: [
-      "The Local RAG Assistant is a fully local document intelligence system that enables private, offline question-answering over custom document collections. It combines a document ingestion pipeline, embedding-based retrieval, and Ollama-powered inference — all without relying on hosted AI services.",
-      "The system is containerized with Docker for reproducible deployment and exposes a REST API for programmatic access to retrieval-augmented generation workflows.",
+      "The Local RAG Assistant is a compact, fully local document intelligence system for private question-answering over custom document collections. It combines document ingestion, embedding-based retrieval, and Ollama-powered inference — containerized with Docker and exposed through a REST API.",
+      "Built as a supporting project demonstrating end-to-end local AI infrastructure without hosted inference dependencies.",
     ],
   },
   problem: {
     title: "Problem",
     paragraphs: [
-      "Organizations often need AI systems that operate entirely within their own infrastructure. Hosted AI solutions frequently fall short when privacy, offline operation, or deployment reproducibility are non-negotiable requirements.",
+      "Many environments require AI systems that operate entirely within local infrastructure — without external data transmission, hosted APIs, or third-party inference dependencies.",
     ],
     bullets: [
-      "Need for private AI systems with no external data transmission",
-      "Offline operation requirements in restricted environments",
+      "Need for private AI with no external data transmission",
+      "Offline operation in restricted or air-gapped environments",
       "Sensitive document access without third-party API dependency",
-      "No reliance on hosted inference or embedding services",
-      "Reproducible deployments across development and production environments",
+      "Reproducible deployments across development and production",
     ],
   },
   solution: {
     title: "Solution",
     paragraphs: [
-      "I designed and built an end-to-end RAG pipeline with local inference, vector retrieval, and a REST API layer — enabling private document intelligence without external AI dependencies.",
+      "I built an end-to-end RAG pipeline with local inference, vector retrieval, and REST API integration — Dockerized for reproducible deployment using Ollama and local embedding models.",
     ],
     bullets: [
-      "Document ingestion pipeline for multi-format source files",
-      "Chunking pipeline optimized for retrieval context windows",
-      "Embedding generation using local embedding models",
-      "Vector store for similarity-based document retrieval",
-      "Context assembly with ranked chunk selection",
-      "Ollama-powered LLM response generation",
-      "REST API layer for integration and programmatic access",
+      "Document ingestion and chunking pipeline for retrieval context windows",
+      "Local embedding generation and vector store for similarity search",
+      "Context assembly with ranked chunk selection for LLM prompts",
+      "Ollama-powered local LLM response generation",
+      "REST API layer for programmatic RAG access",
+      "Docker containerization for reproducible deployment",
     ],
   },
   architecture: {
@@ -96,12 +94,10 @@ export const localRagAssistantCaseStudy: CaseStudy = {
   highlights: {
     title: "Engineering Highlights",
     items: [
-      "Retrieval-Augmented Generation pipeline with local inference",
+      "Retrieval-Augmented Generation pipeline with fully local inference",
       "Vector search with embedding-based similarity retrieval",
-      "Document chunking and embedding generation pipelines",
-      "Prompt construction with retrieved context assembly",
       "Docker containerization for reproducible deployment",
-      "Local inference architecture powered by Ollama",
+      "REST API integration for programmatic document intelligence",
     ],
   },
   nextCaseStudy: {

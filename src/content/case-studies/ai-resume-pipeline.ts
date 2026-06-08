@@ -11,36 +11,38 @@ export const aiResumePipelineCaseStudy: CaseStudy = {
   overview: {
     title: "Overview",
     paragraphs: [
-      "The AI Resume Pipeline is an enterprise document transformation system built in Palantir Foundry for Jacobs Engineering. It automates the end-to-end processing of candidate resumes — from ingestion through structured extraction to formatted document generation.",
-      "The system processes PDF and DOCX resumes up to 23 pages and 60,000+ characters, using Claude Sonnet to extract structured data and produce standardized, enriched resume documents ready for HR workflows.",
+      "The AI Resume Pipeline is the flagship enterprise AI system I built at Jacobs Engineering. Deployed in Palantir Foundry, it automates the complete lifecycle of candidate resume processing — from document ingestion through structured AI extraction to standardized document generation.",
+      "The system handles PDF and DOCX resumes up to 23 pages and 60,000+ characters, using Claude Sonnet with a chunked extraction strategy to reliably parse complex documents. It extracts 65+ projects per resume, applies PII governance, enriches data against internal HR datasets, and produces formatted outputs ready for downstream hiring workflows.",
     ],
   },
   problem: {
     title: "Problem",
     paragraphs: [
-      "HR teams were spending hours manually processing resumes. Each document required careful review, data extraction, formatting corrections, and enrichment before it could enter downstream hiring workflows.",
+      "HR teams were spending 4+ hours per resume on manual processing. Each document required careful review, data extraction, formatting corrections, PII handling, and enrichment before entering hiring workflows — a bottleneck that did not scale with hiring volume.",
     ],
     bullets: [
-      "Large document sizes exceeding manual review capacity",
-      "Inconsistent formatting across resume sources",
-      "Manual data extraction prone to errors and delays",
-      "PII handling requirements across processing stages",
-      "HR data enrichment needed before final document output",
+      "Large document sizes (60K+ characters) exceeding manual review capacity",
+      "Inconsistent formatting across resume sources and file types",
+      "Manual data extraction prone to errors, delays, and inconsistent outputs",
+      "PII governance requirements across every processing stage",
+      "HR data enrichment needed before final document generation",
+      "No automated path from raw upload to standardized enterprise resume",
     ],
   },
   solution: {
     title: "Solution",
     paragraphs: [
-      "I designed and built a fully automated pipeline that orchestrates ingestion, parsing, AI extraction, data protection, enrichment, and document generation within Palantir Foundry.",
+      "I designed and built a fully automated pipeline orchestrating ingestion, parsing, AI extraction, data protection, enrichment, and document generation within Palantir Foundry. Key engineering decisions centered on chunked extraction for large documents, few-shot prompt engineering for consistent structured outputs, and PII scrubbing integrated before any enrichment step.",
     ],
     bullets: [
-      "Automated ingestion from HR document sources",
-      "Multi-format document parsing for PDF and DOCX",
-      "Claude Sonnet LLM extraction with few-shot prompting",
-      "PII scrubbing workflows before data enrichment",
-      "HR data enrichment against internal datasets",
-      "Automated document generation with standardized templates",
-      "Scheduled orchestration for continuous processing",
+      "Automated ingestion from HR document sources with format detection",
+      "Multi-format document parsing for PDF and DOCX inputs",
+      "Claude Sonnet LLM extraction with chunked processing for 60K+ character resumes",
+      "Few-shot prompt engineering for consistent structured data extraction",
+      "PII scrubbing workflows enforced before HR data enrichment",
+      "HR data enrichment against internal enterprise datasets",
+      "Automated document generation with standardized enterprise templates",
+      "Scheduled orchestration for continuous batch processing",
     ],
   },
   architecture: {
@@ -76,7 +78,7 @@ export const aiResumePipelineCaseStudy: CaseStudy = {
       {
         id: "projects-extracted",
         value: "65+",
-        label: "Projects Extracted",
+        label: "Projects Extracted per Resume",
       },
     ],
   },
@@ -95,11 +97,12 @@ export const aiResumePipelineCaseStudy: CaseStudy = {
   highlights: {
     title: "Engineering Highlights",
     items: [
-      "Chunked document processing for large resume files",
-      "Few-shot prompt engineering for consistent extraction",
-      "Multi-format support across PDF and DOCX inputs",
-      "Automated scheduling and pipeline orchestration",
-      "PII protection workflows integrated at each stage",
+      "Chunked document processing strategy for 60K+ character resume files",
+      "Few-shot prompt engineering achieving consistent structured extraction",
+      "Multi-format support across PDF and DOCX with unified parsing pipeline",
+      "PII governance workflows integrated at every processing stage",
+      "HR data enrichment pipeline connecting AI outputs to enterprise datasets",
+      "Automated scheduling and orchestration for production batch workloads",
     ],
   },
   nextCaseStudy: {

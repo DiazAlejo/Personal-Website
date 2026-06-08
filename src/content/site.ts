@@ -4,10 +4,10 @@ export const site: SiteConfig = {
   name: "Alejandro Díaz",
   domain: "adiaz.dev",
   headline:
-    "Software Engineer building AI systems, automation platforms, and data-driven products.",
+    "Software Engineer building AI systems, machine learning platforms, and data-driven automation solutions.",
   supportingStatement:
-    "Currently developing production AI and ML solutions at Jacobs Engineering.",
+    "I design and deliver production software that transforms complex operational workflows into scalable systems. My work spans AI-powered document processing, large-scale forecasting platforms, enterprise data engineering, and full-stack application development. Currently building AI and data solutions at Jacobs Engineering.",
   title: "Alejandro Díaz",
   description:
-    "Software Engineer building AI systems, machine learning platforms, automation workflows, and data-driven products.",
+    "Software Engineer specializing in AI systems, machine learning, data engineering, and enterprise automation. Production experience at Jacobs Engineering with measurable impact across document AI, forecasting platforms, and full-stack systems.",
 };

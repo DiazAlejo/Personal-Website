@@ -44,10 +44,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
   return (
     <>
       <ProjectStructuredData slug={slug} />
-      <PagePlaceholder
-        title={project.title}
-        description="Full case study will be available here."
-      />
+      <PagePlaceholder title={project.title} description={project.summary} />
     </>
   );
 }

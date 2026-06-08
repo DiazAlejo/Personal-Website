@@ -7,6 +7,7 @@ import { EducationSection } from "@/components/resume/education-section";
 import { ExperienceSummary } from "@/components/resume/experience-summary";
 import { ResumeHeader } from "@/components/resume/resume-header";
 import { ResumeSummary } from "@/components/resume/resume-summary";
+import { SelectedProjects } from "@/components/resume/selected-projects";
 import { SkillsGrid } from "@/components/resume/skills-grid";
 import { resume } from "@/content/resume";
 
@@ -20,6 +21,10 @@ function ResumeView() {
       <Section>
         <Container className="flex flex-col gap-section-y">
           <ResumeSummary summary={resume.summary} />
+          <SelectedProjects
+            title={resume.selectedProjects.title}
+            entries={resume.selectedProjects.entries}
+          />
           <ExperienceSummary experience={resume.experience} />
           <EducationSection education={resume.education} />
           <SkillsGrid skills={resume.skills} />
