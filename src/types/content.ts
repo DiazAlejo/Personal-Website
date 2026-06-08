@@ -61,12 +61,28 @@ export interface ExperienceEntry {
   period: string;
 }
 
+export type ProjectCategory =
+  | "Production Systems"
+  | "AI & ML"
+  | "Full Stack"
+  | "Data Engineering"
+  | "Personal Projects";
+
+export interface ProjectsPageContent {
+  title: string;
+  description: string;
+  ctaLabel: string;
+  emptyStateMessage: string;
+  filterAllLabel: string;
+}
+
 export interface Project {
   slug: string;
   title: string;
   subtitle: string;
   impact: string;
   summary: string;
+  category: ProjectCategory;
   tags: string[];
   featured: boolean;
 }
