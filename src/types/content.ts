@@ -136,6 +136,7 @@ export interface CaseStudy {
     items: string[];
   };
   nextCaseStudy: CaseStudyNavigation;
+  highlightsBeforeTechnologies?: boolean;
 }
 
 export interface SocialLink {

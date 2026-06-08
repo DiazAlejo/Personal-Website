@@ -35,14 +35,29 @@ function CaseStudyView({ caseStudy }: CaseStudyViewProps) {
             title={caseStudy.impact.title}
             metrics={caseStudy.impact.metrics}
           />
-          <CaseStudyTechStack
-            title={caseStudy.technologies.title}
-            items={caseStudy.technologies.items}
-          />
-          <CaseStudyHighlights
-            title={caseStudy.highlights.title}
-            items={caseStudy.highlights.items}
-          />
+          {caseStudy.highlightsBeforeTechnologies ? (
+            <>
+              <CaseStudyHighlights
+                title={caseStudy.highlights.title}
+                items={caseStudy.highlights.items}
+              />
+              <CaseStudyTechStack
+                title={caseStudy.technologies.title}
+                items={caseStudy.technologies.items}
+              />
+            </>
+          ) : (
+            <>
+              <CaseStudyTechStack
+                title={caseStudy.technologies.title}
+                items={caseStudy.technologies.items}
+              />
+              <CaseStudyHighlights
+                title={caseStudy.highlights.title}
+                items={caseStudy.highlights.items}
+              />
+            </>
+          )}
           <CaseStudyNextNav nextCaseStudy={caseStudy.nextCaseStudy} />
         </Container>
       </Section>
