@@ -1,14 +1,13 @@
 import { site } from "@/content/site";
+import { env } from "@/env";
 
 /**
  * Resolves the public site URL. Override via NEXT_PUBLIC_SITE_URL for staging
  * or alternate domains without changing content files.
  */
 export function getSiteUrl(): string {
-  const envUrl = process.env.NEXT_PUBLIC_SITE_URL;
-
-  if (envUrl) {
-    return envUrl.replace(/\/$/, "");
+  if (env.NEXT_PUBLIC_SITE_URL) {
+    return env.NEXT_PUBLIC_SITE_URL.replace(/\/$/, "");
   }
 
   return `https://${site.domain}`;
