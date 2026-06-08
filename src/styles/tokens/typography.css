@@ -1,0 +1,101 @@
+@theme inline {
+  --text-hero: 3rem;
+  --text-hero--line-height: 1.1;
+  --text-hero--letter-spacing: -0.02em;
+  --text-hero--font-weight: 600;
+
+  --text-h1: 2.25rem;
+  --text-h1--line-height: 1.15;
+  --text-h1--letter-spacing: -0.02em;
+  --text-h1--font-weight: 600;
+
+  --text-h2: 1.875rem;
+  --text-h2--line-height: 1.2;
+  --text-h2--letter-spacing: -0.015em;
+  --text-h2--font-weight: 600;
+
+  --text-h3: 1.25rem;
+  --text-h3--line-height: 1.3;
+  --text-h3--letter-spacing: -0.01em;
+  --text-h3--font-weight: 600;
+
+  --text-body: 1rem;
+  --text-body--line-height: 1.625;
+  --text-body--font-weight: 400;
+
+  --text-small: 0.875rem;
+  --text-small--line-height: 1.5;
+  --text-small--font-weight: 400;
+}
+
+@layer components {
+  .text-hero {
+    font-size: var(--text-hero);
+    line-height: var(--text-hero--line-height);
+    letter-spacing: var(--text-hero--letter-spacing);
+    font-weight: var(--text-hero--font-weight);
+    @apply text-text-primary;
+
+    @media (width >= 48rem) {
+      font-size: 3rem;
+    }
+
+    @media (width >= 64rem) {
+      font-size: 3.75rem;
+    }
+  }
+
+  .text-h1 {
+    font-size: var(--text-h1);
+    line-height: var(--text-h1--line-height);
+    letter-spacing: var(--text-h1--letter-spacing);
+    font-weight: var(--text-h1--font-weight);
+    @apply text-text-primary;
+
+    @media (width >= 48rem) {
+      font-size: 2.25rem;
+    }
+
+    @media (width >= 64rem) {
+      font-size: 2.5rem;
+    }
+  }
+
+  .text-h2 {
+    font-size: var(--text-h2);
+    line-height: var(--text-h2--line-height);
+    letter-spacing: var(--text-h2--letter-spacing);
+    font-weight: var(--text-h2--font-weight);
+    @apply text-text-primary;
+
+    @media (width >= 48rem) {
+      font-size: 1.875rem;
+    }
+  }
+
+  .text-h3 {
+    font-size: var(--text-h3);
+    line-height: var(--text-h3--line-height);
+    letter-spacing: var(--text-h3--letter-spacing);
+    font-weight: var(--text-h3--font-weight);
+    @apply text-text-primary;
+
+    @media (width >= 48rem) {
+      font-size: 1.375rem;
+    }
+  }
+
+  .text-body {
+    font-size: var(--text-body);
+    line-height: var(--text-body--line-height);
+    font-weight: var(--text-body--font-weight);
+    @apply text-text-primary;
+  }
+
+  .text-small {
+    font-size: var(--text-small);
+    line-height: var(--text-small--line-height);
+    font-weight: var(--text-small--font-weight);
+    @apply text-text-secondary;
+  }
+}

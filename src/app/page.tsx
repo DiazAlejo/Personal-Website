@@ -1,5 +1,6 @@
 import { Container } from "@/components/layout/container";
 import { Section } from "@/components/layout/section";
+import { Typography } from "@/components/ui/typography";
 import { site } from "@/content/site";
 
 export default function Home() {
@@ -7,13 +8,16 @@ export default function Home() {
     <main id="main-content">
       <Section aria-label="Foundation verification">
         <Container>
-          <p className="text-sm text-text-secondary">adiaz.dev</p>
-          <h1 className="mt-2 text-2xl font-semibold text-text-primary">
+          <Typography variant="small">{site.domain}</Typography>
+          <Typography variant="h1" className="mt-element-sm">
             {site.name}
-          </h1>
-          <p className="mt-4 max-w-2xl text-text-secondary">
+          </Typography>
+          <Typography
+            variant="body"
+            className="mt-element max-w-2xl text-text-secondary"
+          >
             {site.description}
-          </p>
+          </Typography>
         </Container>
       </Section>
     </main>

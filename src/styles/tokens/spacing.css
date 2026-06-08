@@ -1,0 +1,24 @@
+@theme inline {
+  /* Section vertical rhythm */
+  --spacing-section-y: 4rem;
+  --spacing-section-y-md: 6rem;
+
+  /* Container horizontal padding */
+  --spacing-container-x: 1rem;
+  --spacing-container-x-sm: 1.5rem;
+  --spacing-container-x-lg: 2rem;
+
+  /* Card internal spacing */
+  --spacing-card: 1.5rem;
+  --spacing-card-gap: 1.5rem;
+  --spacing-card-header: 1.5rem;
+
+  /* Element spacing scale */
+  --spacing-element-xs: 0.25rem;
+  --spacing-element-sm: 0.5rem;
+  --spacing-element: 1rem;
+  --spacing-element-md: 1.25rem;
+  --spacing-element-lg: 1.5rem;
+  --spacing-element-xl: 2rem;
+  --spacing-element-2xl: 3rem;
+}
