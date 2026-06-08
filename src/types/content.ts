@@ -36,6 +36,22 @@ export interface Metric {
   countUp?: MetricCountUp;
 }
 
+export interface FeaturedWorkContent {
+  title: string;
+  description: string;
+  ctaLabel: string;
+}
+
+export interface Project {
+  slug: string;
+  title: string;
+  subtitle: string;
+  impact: string;
+  summary: string;
+  tags: string[];
+  featured: boolean;
+}
+
 export interface SocialLink {
   name: string;
   url: string;
@@ -59,12 +75,4 @@ export interface ExperienceEntry {
   role: string;
   period: string;
   description: string;
-}
-
-export interface Project {
-  slug: string;
-  title: string;
-  summary: string;
-  tags: string[];
-  featured: boolean;
 }
