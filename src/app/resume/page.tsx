@@ -1,10 +1,12 @@
-import { PagePlaceholder } from "@/components/layout/page-placeholder";
+import { ResumeView } from "@/components/resume/resume-view";
+import { resume } from "@/content/resume";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: `${resume.header.title} | Alejandro Díaz`,
+  description: resume.header.subtitle,
+};
 
 export default function ResumePage() {
-  return (
-    <PagePlaceholder
-      title="Resume"
-      description="Resume viewing and download will be available here."
-    />
-  );
+  return <ResumeView />;
 }

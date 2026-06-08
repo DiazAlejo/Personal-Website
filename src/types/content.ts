@@ -162,3 +162,58 @@ export interface SkillCategory {
   name: string;
   skills: string[];
 }
+
+export interface ResumeAction {
+  label: string;
+  href: string;
+  download?: string;
+}
+
+export interface ResumeHeader {
+  title: string;
+  subtitle: string;
+  primaryAction: ResumeAction;
+  secondaryAction: ResumeAction;
+}
+
+export interface ResumeExperienceEntry {
+  id: string;
+  company: string;
+  role: string;
+  period: string;
+  achievements: string[];
+}
+
+export interface ResumeEducation {
+  institution: string;
+  degree: string;
+  minor?: string;
+}
+
+export interface ResumeContent {
+  header: ResumeHeader;
+  summary: {
+    title: string;
+    paragraphs: string[];
+  };
+  experience: {
+    title: string;
+    entries: ResumeExperienceEntry[];
+  };
+  education: {
+    title: string;
+    entry: ResumeEducation;
+  };
+  skills: {
+    title: string;
+    categories: SkillCategory[];
+  };
+  highlights: {
+    title: string;
+    metrics: Metric[];
+  };
+  pdf: {
+    path: string;
+    filename: string;
+  };
+}
