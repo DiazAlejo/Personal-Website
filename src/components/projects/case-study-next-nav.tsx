@@ -26,12 +26,15 @@ function CaseStudyNextNav({ nextCaseStudy }: CaseStudyNextNavProps) {
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true, margin: "-80px" }}
-      aria-label="Next case study"
+      aria-label="Case study navigation"
     >
       <Divider className="mb-element-xl" />
 
       <Link
-        href={getProjectPath(nextCaseStudy.slug)}
+        href={
+          nextCaseStudy.href ??
+          getProjectPath(nextCaseStudy.slug ?? "")
+        }
         className="group inline-flex items-center gap-element-sm rounded-lg text-primary transition-[gap] duration-normal ease-default hover:gap-element-md focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring"
       >
         <Typography variant="body" className="font-medium text-primary">

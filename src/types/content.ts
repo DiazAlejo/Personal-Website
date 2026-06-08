@@ -105,8 +105,9 @@ export interface CaseStudyNarrativeSection {
 }
 
 export interface CaseStudyNavigation {
-  slug: string;
   label: string;
+  slug?: string;
+  href?: string;
 }
 
 export type CaseStudySectionOrder =
