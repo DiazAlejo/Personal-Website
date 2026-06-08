@@ -1,3 +1,4 @@
+import { AppShell } from "@/components/layout/app-shell";
 import { site } from "@/content/site";
 import "@/styles/globals.css";
 import type { Metadata } from "next";
@@ -34,7 +35,7 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${inter.variable} min-h-screen bg-background text-foreground antialiased`}
       >
-        {children}
+        <AppShell>{children}</AppShell>
       </body>
     </html>
   );
