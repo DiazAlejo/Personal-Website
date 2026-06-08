@@ -22,6 +22,20 @@ export interface HeroContent {
   secondaryCta: HeroCta;
 }
 
+export interface MetricCountUp {
+  from: number;
+  to: number;
+  prefix?: string;
+  suffix?: string;
+}
+
+export interface Metric {
+  id: string;
+  value: string;
+  label: string;
+  countUp?: MetricCountUp;
+}
+
 export interface SocialLink {
   name: string;
   url: string;
@@ -31,13 +45,6 @@ export interface SocialLink {
 export interface Socials {
   email: string;
   links: SocialLink[];
-}
-
-export interface Metric {
-  id: string;
-  value: string;
-  label: string;
-  suffix?: string;
 }
 
 export interface SkillCategory {

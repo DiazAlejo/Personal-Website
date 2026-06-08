@@ -38,6 +38,30 @@ export const heroRevealTransition = {
   },
 } as const;
 
+export const metricsRevealTransition = {
+  item: {
+    hidden: { opacity: 0, y: 16 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: motion.duration.slow,
+        ease: motion.easing.enter,
+      },
+    },
+  },
+  container: {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: motion.stagger.normal,
+        delayChildren: 0.05,
+      },
+    },
+  },
+} as const;
+
 export const mobileMenuTransition = {
   overlay: {
     initial: { opacity: 0 },
