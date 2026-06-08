@@ -1,12 +1,19 @@
 import { CaseStudyView } from "@/components/projects/case-study-view";
+import { ProjectStructuredData } from "@/components/seo/project-structured-data";
 import { waterForecastingCaseStudy } from "@/content/case-studies/water-forecasting-platform";
-import type { Metadata } from "next";
+import { createProjectMetadata } from "@/lib/seo/metadata";
 
-export const metadata: Metadata = {
-  title: `${waterForecastingCaseStudy.hero.title} | Alejandro Díaz`,
+export const metadata = createProjectMetadata({
+  title: waterForecastingCaseStudy.hero.title,
   description: waterForecastingCaseStudy.hero.subtitle,
-};
+  slug: waterForecastingCaseStudy.slug,
+});
 
 export default function WaterForecastingPlatformPage() {
-  return <CaseStudyView caseStudy={waterForecastingCaseStudy} />;
+  return (
+    <>
+      <ProjectStructuredData slug={waterForecastingCaseStudy.slug} />
+      <CaseStudyView caseStudy={waterForecastingCaseStudy} />
+    </>
+  );
 }

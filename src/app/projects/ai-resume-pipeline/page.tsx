@@ -1,12 +1,19 @@
 import { CaseStudyView } from "@/components/projects/case-study-view";
+import { ProjectStructuredData } from "@/components/seo/project-structured-data";
 import { aiResumePipelineCaseStudy } from "@/content/case-studies/ai-resume-pipeline";
-import type { Metadata } from "next";
+import { createProjectMetadata } from "@/lib/seo/metadata";
 
-export const metadata: Metadata = {
-  title: `${aiResumePipelineCaseStudy.hero.title} | Alejandro Díaz`,
+export const metadata = createProjectMetadata({
+  title: aiResumePipelineCaseStudy.hero.title,
   description: aiResumePipelineCaseStudy.hero.subtitle,
-};
+  slug: aiResumePipelineCaseStudy.slug,
+});
 
 export default function AiResumePipelinePage() {
-  return <CaseStudyView caseStudy={aiResumePipelineCaseStudy} />;
+  return (
+    <>
+      <ProjectStructuredData slug={aiResumePipelineCaseStudy.slug} />
+      <CaseStudyView caseStudy={aiResumePipelineCaseStudy} />
+    </>
+  );
 }

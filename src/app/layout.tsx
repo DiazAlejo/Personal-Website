@@ -1,7 +1,7 @@
 import { AppShell } from "@/components/layout/app-shell";
-import { site } from "@/content/site";
+import { GlobalStructuredData } from "@/components/seo/global-structured-data";
 import "@/styles/globals.css";
-import type { Metadata } from "next";
+import { createRootMetadata } from "@/lib/seo/metadata";
 import { Geist, Geist_Mono } from "next/font/google";
 import { Inter } from "next/font/google";
 
@@ -20,10 +20,7 @@ const inter = Inter({
   subsets: ["latin"],
 });
 
-export const metadata: Metadata = {
-  title: site.title,
-  description: site.description,
-};
+export const metadata = createRootMetadata();
 
 export default function RootLayout({
   children,
@@ -35,6 +32,7 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${inter.variable} min-h-screen bg-background text-foreground antialiased`}
       >
+        <GlobalStructuredData />
         <AppShell>{children}</AppShell>
       </body>
     </html>

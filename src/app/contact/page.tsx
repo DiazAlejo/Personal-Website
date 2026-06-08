@@ -1,11 +1,12 @@
 import { ContactView } from "@/components/contact/contact-view";
-import { contactPage } from "@/content/contact";
-import type { Metadata } from "next";
+import { seo } from "@/content/seo";
+import { createPageMetadata } from "@/lib/seo/metadata";
 
-export const metadata: Metadata = {
-  title: `${contactPage.header.title} | Alejandro Díaz`,
-  description: contactPage.header.subtitleLines[0],
-};
+export const metadata = createPageMetadata({
+  title: seo.pages.contact.title,
+  description: seo.pages.contact.description,
+  path: "/contact",
+});
 
 export default function ContactPage() {
   return <ContactView />;

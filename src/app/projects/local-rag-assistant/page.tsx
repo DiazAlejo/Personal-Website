@@ -1,12 +1,19 @@
 import { CaseStudyView } from "@/components/projects/case-study-view";
+import { ProjectStructuredData } from "@/components/seo/project-structured-data";
 import { localRagAssistantCaseStudy } from "@/content/case-studies/local-rag-assistant";
-import type { Metadata } from "next";
+import { createProjectMetadata } from "@/lib/seo/metadata";
 
-export const metadata: Metadata = {
-  title: `${localRagAssistantCaseStudy.hero.title} | Alejandro Díaz`,
+export const metadata = createProjectMetadata({
+  title: localRagAssistantCaseStudy.hero.title,
   description: localRagAssistantCaseStudy.hero.subtitle,
-};
+  slug: localRagAssistantCaseStudy.slug,
+});
 
 export default function LocalRagAssistantPage() {
-  return <CaseStudyView caseStudy={localRagAssistantCaseStudy} />;
+  return (
+    <>
+      <ProjectStructuredData slug={localRagAssistantCaseStudy.slug} />
+      <CaseStudyView caseStudy={localRagAssistantCaseStudy} />
+    </>
+  );
 }

@@ -1,5 +1,7 @@
 import { PagePlaceholder } from "@/components/layout/page-placeholder";
+import { ProjectStructuredData } from "@/components/seo/project-structured-data";
 import { projects } from "@/content/projects";
+import { createProjectMetadata } from "@/lib/seo/metadata";
 import { getProjectBySlug } from "@/lib/projects";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
@@ -24,10 +26,11 @@ export async function generateMetadata({
     return { title: "Project Not Found" };
   }
 
-  return {
-    title: `${project.title} | Alejandro Díaz`,
+  return createProjectMetadata({
+    title: project.title,
     description: project.subtitle,
-  };
+    slug,
+  });
 }
 
 export default async function ProjectPage({ params }: ProjectPageProps) {
@@ -39,9 +42,12 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
   }
 
   return (
-    <PagePlaceholder
-      title={project.title}
-      description="Full case study will be available here."
-    />
+    <>
+      <ProjectStructuredData slug={slug} />
+      <PagePlaceholder
+        title={project.title}
+        description="Full case study will be available here."
+      />
+    </>
   );
 }

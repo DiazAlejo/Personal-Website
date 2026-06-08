@@ -1,11 +1,12 @@
 import { ResumeView } from "@/components/resume/resume-view";
-import { resume } from "@/content/resume";
-import type { Metadata } from "next";
+import { seo } from "@/content/seo";
+import { createPageMetadata } from "@/lib/seo/metadata";
 
-export const metadata: Metadata = {
-  title: `${resume.header.title} | Alejandro Díaz`,
-  description: resume.header.subtitle,
-};
+export const metadata = createPageMetadata({
+  title: seo.pages.resume.title,
+  description: seo.pages.resume.description,
+  path: "/resume",
+});
 
 export default function ResumePage() {
   return <ResumeView />;

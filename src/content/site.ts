@@ -9,5 +9,5 @@ export const site: SiteConfig = {
     "Currently developing production AI and ML solutions at Jacobs Engineering.",
   title: "Alejandro Díaz",
   description:
-    "Software Engineer building AI systems, automation platforms, and data-driven products.",
+    "Software Engineer building AI systems, machine learning platforms, automation workflows, and data-driven products.",
 };

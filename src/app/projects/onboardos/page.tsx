@@ -1,12 +1,19 @@
 import { CaseStudyView } from "@/components/projects/case-study-view";
+import { ProjectStructuredData } from "@/components/seo/project-structured-data";
 import { onboardosCaseStudy } from "@/content/case-studies/onboardos";
-import type { Metadata } from "next";
+import { createProjectMetadata } from "@/lib/seo/metadata";
 
-export const metadata: Metadata = {
-  title: `${onboardosCaseStudy.hero.title} | Alejandro Díaz`,
+export const metadata = createProjectMetadata({
+  title: onboardosCaseStudy.hero.title,
   description: onboardosCaseStudy.hero.subtitle,
-};
+  slug: onboardosCaseStudy.slug,
+});
 
 export default function OnboardosPage() {
-  return <CaseStudyView caseStudy={onboardosCaseStudy} />;
+  return (
+    <>
+      <ProjectStructuredData slug={onboardosCaseStudy.slug} />
+      <CaseStudyView caseStudy={onboardosCaseStudy} />
+    </>
+  );
 }
