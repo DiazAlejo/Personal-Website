@@ -9,3 +9,54 @@
   --ease-exit: cubic-bezier(0.4, 0, 1, 1);
   --ease-smooth: cubic-bezier(0.45, 0, 0.15, 1);
 }
+
+@layer utilities {
+  @keyframes fade-up {
+    from {
+      opacity: 0;
+      transform: translateY(12px);
+    }
+
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes page-fade-in {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+
+  .animate-fade-up {
+    animation: fade-up var(--duration-slow) var(--ease-enter) both;
+  }
+
+  .animate-page-fade-in {
+    animation: page-fade-in var(--duration-normal) var(--ease-enter) both;
+  }
+
+  .animation-delay-100 {
+    animation-delay: 100ms;
+  }
+
+  .animation-delay-200 {
+    animation-delay: 200ms;
+  }
+
+  .animation-delay-300 {
+    animation-delay: 300ms;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .animate-fade-up,
+    .animate-page-fade-in {
+      animation: none;
+    }
+  }
+}
