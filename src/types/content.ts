@@ -42,6 +42,18 @@ export interface FeaturedWorkContent {
   ctaLabel: string;
 }
 
+export interface ExperienceSectionContent {
+  title: string;
+  description: string;
+}
+
+export interface ExperienceEntry {
+  id: string;
+  company: string;
+  role: string;
+  period: string;
+}
+
 export interface Project {
   slug: string;
   title: string;
@@ -67,12 +79,4 @@ export interface SkillCategory {
   id: string;
   name: string;
   skills: string[];
-}
-
-export interface ExperienceEntry {
-  id: string;
-  company: string;
-  role: string;
-  period: string;
-  description: string;
 }

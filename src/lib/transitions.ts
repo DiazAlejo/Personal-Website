@@ -97,6 +97,51 @@ export const featuredWorkRevealTransition = {
   },
 } as const;
 
+export const timelineRevealTransition = {
+  item: {
+    hidden: { opacity: 0, y: 16 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: motion.duration.slow,
+        ease: motion.easing.enter,
+      },
+    },
+  },
+  container: {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: motion.stagger.normal,
+        delayChildren: 0.05,
+      },
+    },
+  },
+  header: {
+    hidden: { opacity: 0, y: 12 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: motion.duration.slow,
+        ease: motion.easing.enter,
+      },
+    },
+  },
+  line: {
+    hidden: { scaleY: 0 },
+    visible: {
+      scaleY: 1,
+      transition: {
+        duration: motion.duration.slower,
+        ease: motion.easing.smooth,
+      },
+    },
+  },
+} as const;
+
 export const mobileMenuTransition = {
   overlay: {
     initial: { opacity: 0 },
