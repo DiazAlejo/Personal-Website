@@ -12,6 +12,16 @@ export interface NavItem {
   href: string;
 }
 
+export interface HeroCta {
+  label: string;
+  href: string;
+}
+
+export interface HeroContent {
+  primaryCta: HeroCta;
+  secondaryCta: HeroCta;
+}
+
 export interface SocialLink {
   name: string;
   url: string;

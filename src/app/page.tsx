@@ -1,6 +1,5 @@
-import { PagePlaceholder } from "@/components/layout/page-placeholder";
-import { site } from "@/content/site";
+import { Hero } from "@/components/sections/hero";
 
 export default function Home() {
-  return <PagePlaceholder title={site.name} description={site.description} />;
+  return <Hero />;
 }

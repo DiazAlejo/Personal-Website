@@ -14,6 +14,30 @@ export const pageTransition = {
   },
 } as const;
 
+export const heroRevealTransition = {
+  item: {
+    hidden: { opacity: 0, y: 12 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: motion.duration.slow,
+        ease: motion.easing.enter,
+      },
+    },
+  },
+  container: {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: motion.stagger.normal,
+        delayChildren: 0.1,
+      },
+    },
+  },
+} as const;
+
 export const mobileMenuTransition = {
   overlay: {
     initial: { opacity: 0 },
