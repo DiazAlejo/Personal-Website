@@ -1,0 +1,48 @@
+export interface SiteConfig {
+  name: string;
+  domain: string;
+  headline: string;
+  supportingStatement: string;
+  title: string;
+  description: string;
+}
+
+export interface SocialLink {
+  name: string;
+  url: string;
+  label: string;
+}
+
+export interface Socials {
+  email: string;
+  links: SocialLink[];
+}
+
+export interface Metric {
+  id: string;
+  value: string;
+  label: string;
+  suffix?: string;
+}
+
+export interface SkillCategory {
+  id: string;
+  name: string;
+  skills: string[];
+}
+
+export interface ExperienceEntry {
+  id: string;
+  company: string;
+  role: string;
+  period: string;
+  description: string;
+}
+
+export interface Project {
+  slug: string;
+  title: string;
+  summary: string;
+  tags: string[];
+  featured: boolean;
+}
