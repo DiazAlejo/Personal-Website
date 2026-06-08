@@ -26,7 +26,7 @@ function Hero() {
     <Section
       aria-labelledby="hero-headline"
       className={cn(
-        "relative overflow-hidden",
+        "page-header-accent relative overflow-hidden",
         "py-section-y-md md:min-h-[calc(100vh-3.5rem)] md:py-section-y-md",
         "md:flex md:items-center",
       )}

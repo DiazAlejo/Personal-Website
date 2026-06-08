@@ -1,8 +1,13 @@
 import { motion } from "@/lib/motion";
+import {
+  createRevealContainer,
+  createRevealHeader,
+  createRevealItem,
+} from "@/lib/motion-presets";
 
 /**
- * Shared page transition configuration for Framer Motion.
- * Future slices extend these values — keep animations minimal for now.
+ * Shared page transition configuration.
+ * Target: 150ms–300ms subtle fade.
  */
 export const pageTransition = {
   initial: { opacity: 0 },
@@ -15,17 +20,7 @@ export const pageTransition = {
 } as const;
 
 export const heroRevealTransition = {
-  item: {
-    hidden: { opacity: 0, y: 12 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: motion.duration.slow,
-        ease: motion.easing.enter,
-      },
-    },
-  },
+  item: createRevealItem(12),
   container: {
     hidden: { opacity: 0 },
     visible: {
@@ -39,97 +34,20 @@ export const heroRevealTransition = {
 } as const;
 
 export const metricsRevealTransition = {
-  item: {
-    hidden: { opacity: 0, y: 16 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: motion.duration.slow,
-        ease: motion.easing.enter,
-      },
-    },
-  },
-  container: {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: motion.stagger.normal,
-        delayChildren: 0.05,
-      },
-    },
-  },
+  item: createRevealItem(16),
+  container: createRevealContainer(),
 } as const;
 
 export const featuredWorkRevealTransition = {
-  item: {
-    hidden: { opacity: 0, y: 20 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: motion.duration.slow,
-        ease: motion.easing.enter,
-      },
-    },
-  },
-  container: {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: motion.stagger.slow,
-        delayChildren: 0.05,
-      },
-    },
-  },
-  header: {
-    hidden: { opacity: 0, y: 12 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: motion.duration.slow,
-        ease: motion.easing.enter,
-      },
-    },
-  },
+  item: createRevealItem(20),
+  container: createRevealContainer(motion.stagger.slow),
+  header: createRevealHeader(),
 } as const;
 
 export const timelineRevealTransition = {
-  item: {
-    hidden: { opacity: 0, y: 16 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: motion.duration.slow,
-        ease: motion.easing.enter,
-      },
-    },
-  },
-  container: {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: motion.stagger.normal,
-        delayChildren: 0.05,
-      },
-    },
-  },
-  header: {
-    hidden: { opacity: 0, y: 12 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: motion.duration.slow,
-        ease: motion.easing.enter,
-      },
-    },
-  },
+  item: createRevealItem(16),
+  container: createRevealContainer(),
+  header: createRevealHeader(),
   line: {
     hidden: { scaleY: 0 },
     visible: {
@@ -143,27 +61,8 @@ export const timelineRevealTransition = {
 } as const;
 
 export const contactCtaRevealTransition = {
-  item: {
-    hidden: { opacity: 0, y: 12 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: motion.duration.slow,
-        ease: motion.easing.enter,
-      },
-    },
-  },
-  container: {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: motion.stagger.normal,
-        delayChildren: 0.05,
-      },
-    },
-  },
+  item: createRevealItem(12),
+  container: createRevealContainer(),
   buttons: {
     hidden: { opacity: 0 },
     visible: {
@@ -174,76 +73,18 @@ export const contactCtaRevealTransition = {
       },
     },
   },
-  button: {
-    hidden: { opacity: 0, y: 8 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: motion.duration.normal,
-        ease: motion.easing.enter,
-      },
-    },
-  },
+  button: createRevealItem(8),
 } as const;
 
 export const projectsGridRevealTransition = {
-  item: {
-    hidden: { opacity: 0, y: 16 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: motion.duration.slow,
-        ease: motion.easing.enter,
-      },
-    },
-  },
-  container: {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: motion.stagger.normal,
-        delayChildren: 0.05,
-      },
-    },
-  },
+  item: createRevealItem(16),
+  container: createRevealContainer(),
 } as const;
 
 export const caseStudyRevealTransition = {
-  item: {
-    hidden: { opacity: 0, y: 16 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: motion.duration.slow,
-        ease: motion.easing.enter,
-      },
-    },
-  },
-  container: {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: motion.stagger.normal,
-        delayChildren: 0.05,
-      },
-    },
-  },
-  diagramStep: {
-    hidden: { opacity: 0, y: 12 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: motion.duration.normal,
-        ease: motion.easing.enter,
-      },
-    },
-  },
+  item: createRevealItem(16),
+  container: createRevealContainer(),
+  diagramStep: createRevealItem(12),
   diagramContainer: {
     hidden: { opacity: 0 },
     visible: {

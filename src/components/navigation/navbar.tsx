@@ -15,9 +15,9 @@ function Navbar() {
   return (
     <header
       className={cn(
-        "sticky top-0 z-50 transition-[background-color,border-color,backdrop-filter] duration-normal ease-default",
+        "sticky top-0 z-50 transition-[background-color,border-color,box-shadow,backdrop-filter] duration-normal ease-default",
         isScrolled
-          ? "border-b border-border bg-background/80 shadow-glass backdrop-blur-md"
+          ? "border-b border-border/80 bg-background/75 shadow-glass backdrop-blur-md backdrop-saturate-150"
           : "border-b border-transparent bg-transparent",
       )}
     >

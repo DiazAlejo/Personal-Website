@@ -56,7 +56,7 @@ function ExperienceTimeline() {
             <motion.div
               aria-hidden="true"
               variants={lineVariants}
-              className="absolute top-1.5 bottom-0 left-0 w-px origin-top bg-border"
+              className="absolute top-2 bottom-0 left-[3px] w-px origin-top bg-gradient-to-b from-primary/40 via-border to-transparent"
             />
 
             <motion.ol

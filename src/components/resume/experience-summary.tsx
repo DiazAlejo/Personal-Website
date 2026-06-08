@@ -48,7 +48,7 @@ function ExperienceSummary({ experience }: ExperienceSummaryProps) {
         <motion.div
           aria-hidden="true"
           variants={lineVariants}
-          className="absolute top-1.5 bottom-0 left-0 w-px origin-top bg-border"
+          className="absolute top-2 bottom-0 left-[3px] w-px origin-top bg-gradient-to-b from-primary/40 via-border to-transparent"
         />
 
         <motion.ol className="relative list-none" aria-label="Work experience">
@@ -57,9 +57,9 @@ function ExperienceSummary({ experience }: ExperienceSummaryProps) {
               key={entry.id}
               variants={itemVariants}
               className={cn(
-                "relative pb-card pl-element-xl last:pb-0",
+                "relative pb-card pl-10 last:pb-0 sm:pl-12",
                 "rounded-lg transition-[background-color] duration-normal ease-default",
-                "hover:bg-surface-secondary/30",
+                "hover:bg-surface-secondary/25",
               )}
             >
               <span

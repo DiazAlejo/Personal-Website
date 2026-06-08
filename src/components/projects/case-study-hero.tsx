@@ -27,7 +27,7 @@ function CaseStudyHero({ hero }: CaseStudyHeroProps) {
     <div
       aria-labelledby="case-study-title"
       className={cn(
-        "relative overflow-hidden border-b border-border",
+        "page-header-accent relative overflow-hidden border-b border-border",
         "py-section-y-md",
       )}
     >

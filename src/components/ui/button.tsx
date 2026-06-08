@@ -1,10 +1,19 @@
+import { hoverPatterns } from "@/lib/hover";
 import { cn } from "@/lib/utils";
 import { cva, type VariantProps } from "class-variance-authority";
 import { Slot } from "radix-ui";
 import * as React from "react";
 
 const buttonVariants = cva(
-  "inline-flex shrink-0 items-center justify-center gap-element-sm rounded-lg text-sm font-medium whitespace-nowrap transition-[background-color,box-shadow,border-color,color] duration-normal ease-default outline-none focus-visible:ring-[3px] focus-visible:ring-ring/50 disabled:pointer-events-none disabled:opacity-50 aria-invalid:border-destructive aria-invalid:ring-destructive/20 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4",
+  cn(
+    "inline-flex shrink-0 items-center justify-center gap-element-sm rounded-lg text-sm font-medium whitespace-nowrap outline-none",
+    "transition-[background-color,box-shadow,border-color,color,transform] duration-normal ease-default",
+    "focus-visible:ring-[3px] focus-visible:ring-ring/50",
+    "disabled:pointer-events-none disabled:opacity-50",
+    "aria-invalid:border-destructive aria-invalid:ring-destructive/20",
+    "[&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4",
+    hoverPatterns.activePress,
+  ),
   {
     variants: {
       variant: {

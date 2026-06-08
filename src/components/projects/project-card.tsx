@@ -4,8 +4,10 @@ import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
 import { Typography } from "@/components/ui/typography";
 import { projectsPage } from "@/content/projects-page";
+import { hoverPatterns } from "@/lib/hover";
 import { getProjectPath } from "@/lib/projects";
 import type { Project } from "@/types/content";
+import { cn } from "@/lib/utils";
 import { ArrowRight } from "lucide-react";
 import Link from "next/link";
 import { motion, type Variants } from "framer-motion";
@@ -27,7 +29,7 @@ function ProjectCard({ project, variants }: ProjectCardProps) {
       >
         <Card
           variant="interactive"
-          className="h-full gap-element-md transition-[transform,box-shadow,border-color] duration-normal ease-default"
+          className={cn("h-full gap-element-md", hoverPatterns.cardInteractive)}
         >
           <CardContent className="flex h-full flex-col gap-element-md">
             <div className="flex flex-col gap-element-sm">

@@ -13,7 +13,7 @@ function EmptyState({ title, description, className }: EmptyStateProps) {
       role="status"
       aria-live="polite"
       className={cn(
-        "rounded-xl border border-dashed border-border bg-surface/50 px-card py-section-y text-center",
+        "rounded-xl border border-dashed border-border bg-surface/50 px-card py-section-y text-center shadow-soft",
         className,
       )}
     >

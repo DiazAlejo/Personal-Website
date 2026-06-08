@@ -15,9 +15,9 @@ function TimelineItem({ entry, variants }: TimelineItemProps) {
     <motion.li
       variants={variants}
       className={cn(
-        "relative pb-card pl-element-xl last:pb-0",
-        "rounded-lg transition-[background-color,box-shadow] duration-normal ease-default",
-        "hover:bg-surface-secondary/30",
+        "relative pb-card pl-10 last:pb-0 sm:pl-12",
+        "rounded-lg transition-[background-color] duration-normal ease-default",
+        "hover:bg-surface-secondary/25",
       )}
     >
       <span
@@ -36,10 +36,14 @@ function TimelineItem({ entry, variants }: TimelineItemProps) {
         >
           {entry.period}
         </Typography>
-        <Typography variant="h3" as="h3">
+        <Typography variant="h3" as="h3" className="text-balance">
           {entry.role}
         </Typography>
-        <Typography variant="small" as="p" className="text-text-secondary">
+        <Typography
+          variant="small"
+          as="p"
+          className="font-medium text-text-primary/80"
+        >
           {entry.company}
         </Typography>
       </div>

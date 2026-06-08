@@ -21,10 +21,9 @@ function MetricCard({ metric, variants }: MetricCardProps) {
     >
       <Card
         className={cn(
-          "h-full transition-[transform,box-shadow,border-color] duration-normal ease-default",
-          hoverPatterns.borderHighlight,
-          hoverPatterns.softShadow,
-          "hover:-translate-y-px",
+                "h-full",
+                hoverPatterns.cardInteractive,
+                hoverPatterns.borderHighlight,
         )}
       >
         <CardContent className="flex flex-col gap-element-sm">

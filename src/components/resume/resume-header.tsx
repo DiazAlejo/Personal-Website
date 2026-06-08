@@ -31,7 +31,7 @@ function ResumeHeader({ header }: ResumeHeaderProps) {
     <header
       aria-labelledby="resume-heading"
       className={cn(
-        "relative overflow-hidden border-b border-border",
+        "page-header-accent relative overflow-hidden border-b border-border",
         "py-section-y-md",
       )}
     >

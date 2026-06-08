@@ -17,7 +17,7 @@ function ContactView() {
 
       <Section>
         <Container>
-          <div className="grid grid-cols-1 gap-section-y lg:grid-cols-2 lg:gap-element-xl lg:items-start">
+          <div className="grid grid-cols-1 gap-section-y lg:grid-cols-2 lg:items-start lg:gap-element-xl xl:gap-section-y">
             <div className="flex flex-col gap-section-y">
               <ContactMethods methods={contactPage.methods} />
               <AvailabilitySection availability={contactPage.availability} />

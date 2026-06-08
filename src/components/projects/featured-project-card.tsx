@@ -4,7 +4,9 @@ import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
 import { Typography } from "@/components/ui/typography";
 import { featuredWork } from "@/content/featured-work";
+import { hoverPatterns } from "@/lib/hover";
 import { getProjectPath } from "@/lib/projects";
+import { cn } from "@/lib/utils";
 import type { Project } from "@/types/content";
 import { ArrowRight } from "lucide-react";
 import Link from "next/link";
@@ -27,7 +29,7 @@ function FeaturedProjectCard({ project, variants }: FeaturedProjectCardProps) {
       >
         <Card
           variant="interactive"
-          className="gap-element-md transition-[transform,box-shadow,border-color] duration-normal ease-default"
+          className={cn("gap-element-md", hoverPatterns.cardInteractive)}
         >
           <CardContent className="flex flex-col gap-element-md">
             <div className="flex flex-col gap-element-sm">

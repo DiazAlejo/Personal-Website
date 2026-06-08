@@ -15,7 +15,7 @@ const ArchitectureDiagram = dynamic(
     loading: () => (
       <div
         aria-hidden="true"
-        className="min-h-[24rem] rounded-lg border border-border bg-surface/40"
+        className="min-h-[24rem] animate-pulse rounded-lg border border-border bg-surface-secondary/20"
       />
     ),
   },
@@ -91,7 +91,7 @@ function CaseStudyView({ caseStudy }: CaseStudyViewProps) {
       </Container>
 
       <Section>
-        <Container className="flex flex-col gap-section-y">
+        <Container className="flex max-w-4xl flex-col gap-section-y">
           <CaseStudySection section={caseStudy.overview} />
           <CaseStudySection section={caseStudy.problem} />
           <CaseStudySection section={caseStudy.solution} />

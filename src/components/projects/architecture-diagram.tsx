@@ -2,7 +2,9 @@
 import { usePrefersReducedMotion } from "@/hooks/use-prefers-reduced-motion";
 
 import { Typography } from "@/components/ui/typography";
+import { hoverPatterns } from "@/lib/hover";
 import { caseStudyRevealTransition } from "@/lib/transitions";
+import { cn } from "@/lib/utils";
 import type { CaseStudyArchitectureStep } from "@/types/content";
 import { motion } from "framer-motion";
 import { ArrowDown } from "lucide-react";
@@ -46,7 +48,10 @@ function ArchitectureDiagram({
           <li key={step.id} className="flex w-full flex-col items-center">
             <motion.div
               variants={stepVariants}
-              className="w-full rounded-lg border border-border bg-surface px-card py-element-md text-center shadow-soft"
+              className={cn(
+                "w-full rounded-lg border border-border bg-surface px-card py-element-md text-center shadow-soft",
+                hoverPatterns.borderHighlight,
+              )}
             >
               <Typography variant="body" className="font-medium">
                 {step.label}
