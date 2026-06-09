@@ -2,8 +2,11 @@ import { withSentryConfig } from "@sentry/nextjs";
 import { getSecurityHeaders } from "./src/lib/security/headers";
 import type { NextConfig } from "next";
 
+const hasSentryAuthToken = Boolean(process.env.SENTRY_AUTH_TOKEN);
+
 const nextConfig: NextConfig = {
   poweredByHeader: false,
+  productionBrowserSourceMaps: hasSentryAuthToken,
   turbopack: {
     root: process.cwd(),
   },
@@ -17,8 +20,6 @@ const nextConfig: NextConfig = {
   },
 };
 
-const hasSentryAuthToken = Boolean(process.env.SENTRY_AUTH_TOKEN);
-
 export default withSentryConfig(nextConfig, {
   org: "adiaz-dev",
   project: "adiaz-dev",
@@ -28,6 +29,8 @@ export default withSentryConfig(nextConfig, {
   tunnelRoute: "/monitoring",
   sourcemaps: {
     disable: !hasSentryAuthToken,
+    deleteSourcemapsAfterUpload: true,
+    ignore: ["**/node_modules/**"],
   },
   webpack: {
     automaticVercelMonitors: false,

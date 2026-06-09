@@ -2,8 +2,6 @@ import { seo } from "@/content/seo";
 import { site } from "@/content/site";
 import { ImageResponse } from "next/og";
 
-export const runtime = "edge";
-
 export async function GET(request: Request) {
   const { searchParams } = new URL(request.url);
   const title = searchParams.get("title") ?? site.name;
