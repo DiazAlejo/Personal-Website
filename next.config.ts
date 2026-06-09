@@ -1,5 +1,8 @@
 import { withSentryConfig } from "@sentry/nextjs";
-import { getSecurityHeaders } from "./src/lib/security/headers";
+import {
+  getResumeEmbedHeaders,
+  getSecurityHeaders,
+} from "./src/lib/security/headers";
 import type { NextConfig } from "next";
 
 const hasSentryAuthToken = Boolean(process.env.SENTRY_AUTH_TOKEN);
@@ -12,6 +15,10 @@ const nextConfig: NextConfig = {
   },
   async headers() {
     return [
+      {
+        source: "/alejandro_diaz_resume.html",
+        headers: getResumeEmbedHeaders(),
+      },
       {
         source: "/:path*",
         headers: getSecurityHeaders(),

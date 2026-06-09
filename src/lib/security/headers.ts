@@ -1,4 +1,7 @@
-import { buildContentSecurityPolicy } from "./csp";
+import {
+  buildContentSecurityPolicy,
+  buildResumeEmbedContentSecurityPolicy,
+} from "./csp";
 
 export function getSecurityHeaders() {
   const posthogHost =
@@ -37,5 +40,22 @@ export function getSecurityHeaders() {
           },
         ]
       : []),
+  ];
+}
+
+export function getResumeEmbedHeaders() {
+  return [
+    {
+      key: "X-Frame-Options",
+      value: "SAMEORIGIN",
+    },
+    {
+      key: "X-Content-Type-Options",
+      value: "nosniff",
+    },
+    {
+      key: "Content-Security-Policy",
+      value: buildResumeEmbedContentSecurityPolicy(),
+    },
   ];
 }
