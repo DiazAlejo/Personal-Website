@@ -1,8 +1,34 @@
-# Personal Website
+# Alejandro Díaz — Portfolio
 
-Portfolio for Alejandro Díaz — Software Engineer building AI systems, automation platforms, and data-driven products.
+Production portfolio site for Alejandro Díaz, Software Engineer.
+
+**Live:** [https://adiaz-dev.vercel.app](https://adiaz-dev.vercel.app)
 
 Built with Next.js 15, React 19, TypeScript, Tailwind CSS v4, and Framer Motion.
+
+## Features
+
+- **Homepage** — hero, impact metrics, featured work, experience timeline, contact CTA
+- **Projects** — filterable grid with 4 full case studies + university group projects overview
+- **Resume** — fullscreen HTML resume viewer with PDF download
+- **Contact** — form backed by [Resend](https://resend.com) with client-side validation
+- **SEO** — metadata, Open Graph images (`/api/og`), sitemap, robots.txt, JSON-LD
+- **Analytics** — optional PostHog explicit events (no autocapture)
+- **Monitoring** — optional Sentry client + server error tracking
+- **Security** — CSP, HSTS, and hardened response headers
+
+## Tech Stack
+
+| Layer | Tools |
+|---|---|
+| Framework | Next.js 15 (App Router) |
+| UI | React 19, Tailwind CSS v4, Radix UI, Framer Motion |
+| Content | Typed content modules in `src/content/` |
+| Email | Resend (`/api/contact`) |
+| Analytics | PostHog |
+| Monitoring | Sentry (`@sentry/nextjs`) |
+| Hosting | Vercel |
+| CI | GitHub Actions |
 
 ## Local Development
 
@@ -14,152 +40,141 @@ npm run dev
 
 Open [http://localhost:3000](http://localhost:3000).
 
-## Build
+### Scripts
 
-```bash
-npm run build
-npm run start
-```
-
-## Quality Checks
-
-```bash
-npm run typecheck
-npm run lint
-npm run format:check
-```
+| Command | Description |
+|---|---|
+| `npm run dev` | Start dev server (Turbopack) |
+| `npm run build` | Production build |
+| `npm run start` | Serve production build |
+| `npm run typecheck` | TypeScript check |
+| `npm run lint` | ESLint |
+| `npm run format:check` | Prettier check |
 
 ## Environment Variables
 
-Copy `.env.example` to `.env.local` and configure as needed.
+Copy `.env.example` to `.env.local` for local development. Set the same values in **Vercel → Project → Settings → Environment Variables** for Production and Preview.
 
-| Variable | Required | Description |
-|---|---|---|
-| `NEXT_PUBLIC_SITE_URL` | Production | Canonical URL (your `*.vercel.app` deployment URL) |
-| `NEXT_PUBLIC_POSTHOG_KEY` | Optional | PostHog project API key |
-| `NEXT_PUBLIC_POSTHOG_HOST` | Optional | PostHog ingest host |
-| `NEXT_PUBLIC_SENTRY_DSN` | Optional | Sentry browser DSN |
-| `NEXT_PUBLIC_ANALYTICS_ENABLED` | Optional | Set `false` to disable analytics |
-| `RESEND_API_KEY` | Contact form | Resend API key (server-only) |
-| `RESEND_FROM_EMAIL` | Contact form | Verified sender, e.g. `Portfolio <onboarding@resend.dev>` |
-| `CONTACT_TO_EMAIL` | Contact form | Inbox that receives submissions |
+### Required (production)
 
-Environment variables are validated at startup via `src/env.ts` (Zod). Invalid values fail fast with clear error messages.
+| Variable | Description |
+|---|---|
+| `NEXT_PUBLIC_SITE_URL` | Canonical URL, e.g. `https://adiaz-dev.vercel.app` |
+
+### Contact form (Resend)
+
+Server-only — never prefix with `NEXT_PUBLIC_`.
+
+| Variable | Description |
+|---|---|
+| `RESEND_API_KEY` | API key from [resend.com/api-keys](https://resend.com/api-keys) |
+| `RESEND_FROM_EMAIL` | Sender address. Testing: `Alejandro Díaz <onboarding@resend.dev>`. Production: use a verified domain. |
+| `CONTACT_TO_EMAIL` | Inbox that receives form submissions |
+
+Redeploy after adding or changing these variables.
+
+### Analytics (optional)
+
+| Variable | Description |
+|---|---|
+| `NEXT_PUBLIC_POSTHOG_KEY` | PostHog project API key |
+| `NEXT_PUBLIC_POSTHOG_HOST` | Ingest host, e.g. `https://us.i.posthog.com` |
+| `NEXT_PUBLIC_ANALYTICS_ENABLED` | Set `false` to disable analytics |
+
+If `NEXT_PUBLIC_POSTHOG_KEY` is set in production, `NEXT_PUBLIC_POSTHOG_HOST` is required.
+
+### Monitoring (optional)
+
+| Variable | Description |
+|---|---|
+| `NEXT_PUBLIC_SENTRY_DSN` | Sentry browser DSN |
+| `SENTRY_DSN` | Server-side fallback (same value) |
+| `SENTRY_AUTH_TOKEN` | Optional. Enables source map uploads for readable stack traces in Sentry. |
+
+Public env vars are validated at startup via `src/env.ts` (Zod).
 
 ## Deploy to Vercel
 
-1. Import the repository in [Vercel](https://vercel.com).
-2. Framework preset: **Next.js** (auto-detected).
-3. Set environment variables from `.env.example` in Project Settings.
-4. Deploy.
+1. Import this repository in [Vercel](https://vercel.com) (Next.js preset).
+2. Add environment variables from the tables above.
+3. Deploy to get your `*.vercel.app` URL.
+4. Set `NEXT_PUBLIC_SITE_URL` to that URL and redeploy.
+5. Push to `main` to trigger automatic deployments.
 
-After the first deploy, set `NEXT_PUBLIC_SITE_URL` to your assigned `*.vercel.app` URL and redeploy. Custom domain is optional — add one later in Vercel → Project → Settings → Domains if needed.
+Custom domain is optional: **Vercel → Project → Settings → Domains**.
+
+## Content & Assets
+
+### Resume (HTML)
+
+The resume shown in the `/resume` popup is loaded from:
+
+```
+public/alejandro_diaz_resume.html
+```
+
+Edit this file and redeploy to update the in-browser resume. PDF download uses:
+
+```
+public/resume/alejandro-diaz-resume.pdf
+```
+
+### Site copy & links
+
+| File | Purpose |
+|---|---|
+| `src/content/socials.ts` | Email, GitHub, LinkedIn |
+| `src/content/projects.ts` | Project cards and categories |
+| `src/content/case-studies/` | Full case study content |
+| `src/content/resume.ts` | Resume page metadata and PDF path |
+| `src/content/hero.ts` | Homepage hero copy and CTAs |
 
 ## Security
 
-Production responses include security headers configured in `next.config.ts`:
+Production responses include security headers in `next.config.ts`:
 
-- `X-Frame-Options: DENY`
+- `Content-Security-Policy` (self, PostHog, Sentry)
+- `Strict-Transport-Security` (production)
+- `X-Frame-Options: DENY` (site pages; resume HTML allows same-origin embed)
 - `X-Content-Type-Options: nosniff`
 - `Referrer-Policy: strict-origin-when-cross-origin`
-- `Permissions-Policy` (camera, microphone, geolocation disabled)
-- `Content-Security-Policy` (self, PostHog, Sentry ingest)
-- `Strict-Transport-Security` (production only)
 
-CSP is built in `src/lib/security/csp.ts` for maintainability.
-
-## Analytics Verification (PostHog)
-
-Prerequisites: `NEXT_PUBLIC_POSTHOG_KEY` configured in environment.
-
-1. Deploy or run production build locally with PostHog key set.
-2. Open browser DevTools → Network, filter by `posthog` or your ingest host.
-3. Verify events fire:
-
-| Action | Expected Event |
-|---|---|
-| Visit `/projects/ai-resume-pipeline` | `project_viewed` |
-| Download resume PDF on `/resume` | `resume_downloaded` |
-| Click "Contact Me" on homepage | `contact_clicked` |
-| Click GitHub/LinkedIn link | `github_clicked` / `linkedin_clicked` |
-| Scroll to end of case study | `case_study_completed` |
-
-4. Confirm in PostHog → Activity that events appear with correct properties.
-
-## Monitoring Verification (Sentry)
-
-Prerequisites: `NEXT_PUBLIC_SENTRY_DSN` configured in environment.
-
-1. Deploy with Sentry DSN set.
-2. Trigger a test error (development only): temporarily add `throw new Error("Sentry test")` in a client component, load page, confirm error appears in Sentry Issues.
-3. Remove test error before deploying.
-4. Verify production errors are captured from:
-   - `app/error.tsx` (route errors)
-   - `app/global-error.tsx` (root errors)
-   - `ErrorBoundary` (client render errors)
-
-## Performance Baseline
-
-Lighthouse scores (production build, post-optimization):
-
-| Route | Performance | Accessibility | Best Practices | SEO |
-|---|---|---|---|---|
-| Home (desktop) | 98 | 100 | 100 | 100 |
-| Home (mobile) | 98 | 100 | 100 | 100 |
-| Contact | 95 | 100 | 100 | 100 |
-
-Target: **95+** across all categories where practical.
-
-## Launch Checklist
-
-### Navigation
-- [ ] Home, Projects, Resume, Contact routes load
-- [ ] Active page indicator works
-- [ ] Mobile menu opens, traps focus, closes on Escape
-
-### Project Pages
-- [ ] All 6 project routes resolve
-- [ ] 4 case studies render full content
-- [ ] University group projects overview renders at `/projects/university-group-projects`
-
-### Forms
-- [ ] Contact form validation works
-- [ ] Success state displays
-
-### Mobile & Accessibility
-- [ ] Responsive layout on mobile, tablet, desktop
-- [ ] Keyboard navigation and focus states work
-- [ ] Skip link reaches main content
-
-### SEO & Social
-- [ ] `/sitemap.xml` and `/robots.txt` accessible
-- [ ] Open Graph image renders at `/api/og`
-- [ ] Twitter card metadata present
-
-### Analytics & Monitoring
-- [ ] PostHog events fire (if configured)
-- [ ] Sentry captures errors (if configured)
-
-### Production
-- [ ] `npm run build` passes in CI
-- [ ] Environment variables set in Vercel
-- [ ] `NEXT_PUBLIC_SITE_URL` matches your live deployment URL
+CSP is maintained in `src/lib/security/csp.ts`.
 
 ## CI/CD
 
-GitHub Actions workflow (`.github/workflows/ci.yml`) runs on pull requests and pushes to `main`:
+GitHub Actions (`.github/workflows/ci.yml`) runs on pull requests and pushes to `main`:
 
-1. Typecheck (`npm run typecheck`)
-2. Lint (`npm run lint`)
-3. Production build (`npm run build`)
+1. `npm run typecheck`
+2. `npm run lint`
+3. `npm run build` (with `NEXT_PUBLIC_SITE_URL` set for CI)
+
+## Production Verification
+
+After deploy, confirm:
+
+- [ ] [Homepage](https://adiaz-dev.vercel.app/) loads
+- [ ] `/projects` — filters and case studies work
+- [ ] `/resume` — HTML popup opens; Close and Download PDF work
+- [ ] `/contact` — form submits and email arrives
+- [ ] `/sitemap.xml`, `/robots.txt`, `/api/og` respond correctly
+- [ ] PostHog events appear in dashboard (if configured)
+- [ ] Sentry captures errors (if configured)
 
 ## Project Structure
 
 ```
+public/
+  alejandro_diaz_resume.html   # HTML resume (popup viewer)
+  resume/                      # PDF resume download
 src/
-  app/              # Next.js App Router pages
-  components/       # UI and section components
-  content/          # Typed content layer
-  lib/              # Analytics, SEO, security, utilities
-  env.ts            # Zod environment validation
+  app/                         # Next.js App Router (pages, API routes)
+  components/                  # UI, layout, sections, projects, resume
+  content/                     # Typed content layer
+  lib/                         # Analytics, SEO, security, email, utilities
+  env.ts                       # Zod validation for public env vars
 ```
+
+## License
+
+Private repository. All rights reserved.
