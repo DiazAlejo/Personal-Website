@@ -6,7 +6,7 @@ export const hero: HeroContent = {
     href: "/projects",
   },
   secondaryCta: {
-    label: "Download Resume",
+    label: "View Resume",
     href: "/resume",
   },
 };

@@ -292,4 +292,7 @@ export interface ResumeContent {
     path: string;
     filename: string;
   };
+  html: {
+    path: string;
+  };
 }

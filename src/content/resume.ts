@@ -203,4 +203,7 @@ export const resume: ResumeContent = {
     path: "/resume/alejandro-diaz-resume.pdf",
     filename: "alejandro-diaz-resume.pdf",
   },
+  html: {
+    path: "/alejandro_diaz_resume.html",
+  },
 };
