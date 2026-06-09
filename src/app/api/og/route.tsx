@@ -40,7 +40,7 @@ export async function GET(request: Request) {
               textTransform: "uppercase",
             }}
           >
-            {site.domain}
+            {site.name}
           </div>
           <div
             style={{

@@ -25,7 +25,7 @@ export function buildWebsiteSchema() {
   return {
     "@context": "https://schema.org",
     "@type": "WebSite",
-    name: site.domain,
+    name: site.name,
     url: getCanonicalUrl(),
     description: seo.description,
     author: {

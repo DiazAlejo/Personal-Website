@@ -2,7 +2,7 @@ import type { SiteConfig } from "@/types/content";
 
 export const site: SiteConfig = {
   name: "Alejandro Díaz",
-  domain: "adiaz.dev",
+  domain: "alejandro-diaz",
   headline:
     "Software Engineer building AI systems, machine learning platforms, and data-driven automation solutions.",
   supportingStatement:

@@ -1,16 +1,15 @@
-import { site } from "@/content/site";
 import { env } from "@/env";
 
 /**
- * Resolves the public site URL. Override via NEXT_PUBLIC_SITE_URL for staging
- * or alternate domains without changing content files.
+ * Resolves the public site URL. Set NEXT_PUBLIC_SITE_URL in production
+ * (e.g. your Vercel deployment URL).
  */
 export function getSiteUrl(): string {
   if (env.NEXT_PUBLIC_SITE_URL) {
     return env.NEXT_PUBLIC_SITE_URL.replace(/\/$/, "");
   }
 
-  return `https://${site.domain}`;
+  return "http://localhost:3000";
 }
 
 export function getCanonicalUrl(path: string = ""): string {

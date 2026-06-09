@@ -12,7 +12,7 @@
     "format:check": "prettier --check ."
   },
   "dependencies": {
-    "@sentry/react": "^10.56.0",
+    "@sentry/nextjs": "^10.57.0",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "framer-motion": "^12.23.12",

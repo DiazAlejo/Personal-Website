@@ -1,7 +1,6 @@
 "use client";
 
 import { initAnalytics } from "@/lib/analytics/provider";
-import { initMonitoring } from "@/lib/monitoring/sentry";
 import { useEffect } from "react";
 
 interface AnalyticsProviderProps {
@@ -21,7 +20,6 @@ function AnalyticsProvider({ children }: AnalyticsProviderProps) {
   useEffect(() => {
     scheduleIdleTask(() => {
       void initAnalytics();
-      void initMonitoring();
     });
   }, []);
 

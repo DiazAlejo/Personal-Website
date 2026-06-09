@@ -1,6 +1,6 @@
-# adiaz.dev
+# Personal Website
 
-Personal portfolio for Alejandro Díaz — Software Engineer building AI systems, automation platforms, and data-driven products.
+Portfolio for Alejandro Díaz — Software Engineer building AI systems, automation platforms, and data-driven products.
 
 Built with Next.js 15, React 19, TypeScript, Tailwind CSS v4, and Framer Motion.
 
@@ -35,7 +35,7 @@ Copy `.env.example` to `.env.local` and configure as needed.
 
 | Variable | Required | Description |
 |---|---|---|
-| `NEXT_PUBLIC_SITE_URL` | Production | Canonical URL (`https://adiaz.dev`) |
+| `NEXT_PUBLIC_SITE_URL` | Production | Canonical URL (your `*.vercel.app` deployment URL) |
 | `NEXT_PUBLIC_POSTHOG_KEY` | Optional | PostHog project API key |
 | `NEXT_PUBLIC_POSTHOG_HOST` | Optional | PostHog ingest host |
 | `NEXT_PUBLIC_SENTRY_DSN` | Optional | Sentry browser DSN |
@@ -50,14 +50,7 @@ Environment variables are validated at startup via `src/env.ts` (Zod). Invalid v
 3. Set environment variables from `.env.example` in Project Settings.
 4. Deploy.
 
-### Domain Configuration (`adiaz.dev`)
-
-1. In Vercel → Project → Settings → Domains, add `adiaz.dev` and `www.adiaz.dev`.
-2. At your DNS provider, configure:
-   - **Apex (`adiaz.dev`)**: A record → `76.76.21.21` (Vercel)
-   - **WWW**: CNAME → `cname.vercel-dns.com`
-3. Verify HTTPS is active (automatic via Vercel).
-4. Set `NEXT_PUBLIC_SITE_URL=https://adiaz.dev` in production environment.
+After the first deploy, set `NEXT_PUBLIC_SITE_URL` to your assigned `*.vercel.app` URL and redeploy. Custom domain is optional — add one later in Vercel → Project → Settings → Domains if needed.
 
 ## Security
 
@@ -147,7 +140,7 @@ Target: **95+** across all categories where practical.
 ### Production
 - [ ] `npm run build` passes in CI
 - [ ] Environment variables set in Vercel
-- [ ] `adiaz.dev` domain configured with HTTPS
+- [ ] `NEXT_PUBLIC_SITE_URL` matches your live deployment URL
 
 ## CI/CD
 

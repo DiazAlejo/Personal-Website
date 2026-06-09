@@ -1,16 +1,16 @@
 import type { Socials } from "@/types/content";
 
 export const socials: Socials = {
-  email: "hello@adiaz.dev",
+  email: "alejandro.diaz.sms@gmail.com",
   links: [
     {
       name: "GitHub",
-      url: "https://github.com/alejandrodiaz-dev",
+      url: "https://github.com/DiazAlejo",
       label: "GitHub profile",
     },
     {
       name: "LinkedIn",
-      url: "https://linkedin.com/in/alejandrodiaz",
+      url: "https://www.linkedin.com/in/alejandroadiazz/",
       label: "LinkedIn profile",
     },
   ],
