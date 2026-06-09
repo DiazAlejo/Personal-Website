@@ -149,18 +149,6 @@ GitHub Actions (`.github/workflows/ci.yml`) runs on pull requests and pushes to 
 2. `npm run lint`
 3. `npm run build` (with `NEXT_PUBLIC_SITE_URL` set for CI)
 
-## Production Verification
-
-After deploy, confirm:
-
-- [ ] [Homepage](https://adiaz-dev.vercel.app/) loads
-- [ ] `/projects` — filters and case studies work
-- [ ] `/resume` — HTML popup opens; Close and Download PDF work
-- [ ] `/contact` — form submits and email arrives
-- [ ] `/sitemap.xml`, `/robots.txt`, `/api/og` respond correctly
-- [ ] PostHog events appear in dashboard (if configured)
-- [ ] Sentry captures errors (if configured)
-
 ## Project Structure
 
 ```
