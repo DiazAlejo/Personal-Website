@@ -16,6 +16,10 @@ interface PageMetadataInput {
   imageSubtitle?: string;
 }
 
+function formatDisplayTitle(title: string): string {
+  return title === seo.defaultTitle ? title : `${title} | ${site.name}`;
+}
+
 export function createPageMetadata({
   title,
   description,
@@ -24,25 +28,25 @@ export function createPageMetadata({
   imageTitle,
   imageSubtitle,
 }: PageMetadataInput): Metadata {
-  const formattedTitle =
-    title === seo.defaultTitle ? title : `${title} | ${site.name}`;
+  const displayTitle = formatDisplayTitle(title);
 
   return {
-    title: formattedTitle,
+    title:
+      title === seo.defaultTitle ? { absolute: displayTitle } : title,
     description,
     keywords: keywords ?? seo.keywords,
     alternates: {
       canonical: getCanonicalUrl(path),
     },
     openGraph: buildOpenGraphConfig({
-      title: formattedTitle,
+      title: displayTitle,
       description,
       path,
       imageTitle,
       imageSubtitle,
     }),
     twitter: buildTwitterConfig({
-      title: formattedTitle,
+      title: displayTitle,
       description,
       imageTitle,
       imageSubtitle,
