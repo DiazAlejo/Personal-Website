@@ -7,7 +7,11 @@ import { Download, X } from "lucide-react";
 import { useRouter } from "next/navigation";
 import { useEffect } from "react";
 
-function ResumeView() {
+interface ResumeViewProps {
+  html: string;
+}
+
+function ResumeView({ html }: ResumeViewProps) {
   const router = useRouter();
 
   useEffect(() => {
@@ -52,7 +56,7 @@ function ResumeView() {
 
       <div className="flex-1 overflow-y-auto p-element-md sm:p-element-lg">
         <iframe
-          src={resume.html.path}
+          srcDoc={html}
           title="Alejandro Díaz Resume"
           className="mx-auto block min-h-[calc(100vh-6rem)] w-full max-w-[860px] rounded-md border-0 bg-white shadow-2xl"
         />

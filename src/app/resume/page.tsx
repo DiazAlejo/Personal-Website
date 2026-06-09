@@ -1,5 +1,6 @@
 import { ResumeView } from "@/components/resume/resume-view";
 import { seo } from "@/content/seo";
+import { getResumeHtml } from "@/lib/resume-html";
 import { createPageMetadata } from "@/lib/seo/metadata";
 
 export const metadata = createPageMetadata({
@@ -9,5 +10,5 @@ export const metadata = createPageMetadata({
 });
 
 export default function ResumePage() {
-  return <ResumeView />;
+  return <ResumeView html={getResumeHtml()} />;
 }
