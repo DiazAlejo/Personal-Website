@@ -66,12 +66,13 @@ export type ProjectCategory =
   | "AI & ML"
   | "Full Stack"
   | "Data Engineering"
-  | "Personal Projects";
+  | "Group Projects";
 
 export interface ProjectsPageContent {
   title: string;
   description: string;
   ctaLabel: string;
+  overviewCtaLabel: string;
   emptyStateMessage: string;
   filterAllLabel: string;
 }
@@ -85,6 +86,20 @@ export interface Project {
   category: ProjectCategory;
   tags: string[];
   featured: boolean;
+  hasCaseStudy?: boolean;
+}
+
+export interface GroupProjectHighlight {
+  title: string;
+  description: string;
+  tags: string[];
+}
+
+export interface GroupProjectsOverview {
+  slug: string;
+  intro: string;
+  highlights: string[];
+  examples: GroupProjectHighlight[];
 }
 
 export interface CaseStudyArchitectureStep {
@@ -224,6 +239,11 @@ export interface ContactPageContent {
       title: string;
       lines: string[];
       resetLabel: string;
+    };
+    error: {
+      title: string;
+      description: string;
+      retryLabel: string;
     };
   };
   availability: {

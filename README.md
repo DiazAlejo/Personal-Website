@@ -40,6 +40,9 @@ Copy `.env.example` to `.env.local` and configure as needed.
 | `NEXT_PUBLIC_POSTHOG_HOST` | Optional | PostHog ingest host |
 | `NEXT_PUBLIC_SENTRY_DSN` | Optional | Sentry browser DSN |
 | `NEXT_PUBLIC_ANALYTICS_ENABLED` | Optional | Set `false` to disable analytics |
+| `RESEND_API_KEY` | Contact form | Resend API key (server-only) |
+| `RESEND_FROM_EMAIL` | Contact form | Verified sender, e.g. `Portfolio <onboarding@resend.dev>` |
+| `CONTACT_TO_EMAIL` | Contact form | Inbox that receives submissions |
 
 Environment variables are validated at startup via `src/env.ts` (Zod). Invalid values fail fast with clear error messages.
 
@@ -117,7 +120,7 @@ Target: **95+** across all categories where practical.
 ### Project Pages
 - [ ] All 6 project routes resolve
 - [ ] 4 case studies render full content
-- [ ] Placeholder pages render for ThriftUni, Trolley Tracker
+- [ ] University group projects overview renders at `/projects/university-group-projects`
 
 ### Forms
 - [ ] Contact form validation works

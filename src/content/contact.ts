@@ -39,6 +39,12 @@ export const contactPage: ContactPageContent = {
       lines: ["Thanks for reaching out.", "I'll get back to you soon."],
       resetLabel: "Send another message",
     },
+    error: {
+      title: "Message not sent",
+      description:
+        "Something went wrong while sending your message. Please try again or email me directly.",
+      retryLabel: "Try again",
+    },
   },
   availability: {
     title: "Availability",

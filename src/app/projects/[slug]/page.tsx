@@ -1,5 +1,7 @@
+import { GroupProjectsView } from "@/components/projects/group-projects-view";
 import { PagePlaceholder } from "@/components/layout/page-placeholder";
 import { ProjectStructuredData } from "@/components/seo/project-structured-data";
+import { groupProjectsOverview } from "@/content/group-projects-overview";
 import { projects } from "@/content/projects";
 import { createProjectMetadata } from "@/lib/seo/metadata";
 import { getProjectBySlug } from "@/lib/projects";
@@ -39,6 +41,15 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
 
   if (!project) {
     notFound();
+  }
+
+  if (project.hasCaseStudy === false && slug === groupProjectsOverview.slug) {
+    return (
+      <>
+        <ProjectStructuredData slug={slug} />
+        <GroupProjectsView project={project} overview={groupProjectsOverview} />
+      </>
+    );
   }
 
   return (

@@ -48,26 +48,23 @@ export const projects: Project[] = [
     featured: true,
   },
   {
-    slug: "thriftuni",
-    title: "ThriftUni",
-    subtitle: "Campus marketplace for university students",
-    impact: "End-to-end marketplace with listings, messaging, and search",
+    slug: "university-group-projects",
+    title: "University Group Projects",
+    subtitle: "15+ team builds across university coursework",
+    impact:
+      "Marketplace, mobile, and campus platforms delivered in collaborative sprints",
     summary:
-      "Full-stack marketplace connecting university students for thrift commerce — user listings, search, messaging, and responsive web experience built with modern TypeScript tooling.",
-    category: "Personal Projects",
-    tags: ["Next.js", "TypeScript", "PostgreSQL", "Marketplace"],
+      "A collection of university group software projects — including campus marketplaces and real-time transit apps — built with modern TypeScript, React Native, and PostgreSQL stacks in agile teams.",
+    category: "Group Projects",
+    tags: [
+      "Next.js",
+      "TypeScript",
+      "React Native",
+      "PostgreSQL",
+      "Team Delivery",
+    ],
     featured: false,
-  },
-  {
-    slug: "trolley-tracker",
-    title: "Trolley Tracker",
-    subtitle: "Real-time campus transit tracking application",
-    impact: "Live location updates for campus trolley routes",
-    summary:
-      "Mobile-first transit tracking application providing real-time trolley location updates, route visibility, and arrival estimates for campus transportation.",
-    category: "Personal Projects",
-    tags: ["React Native", "Real-time", "GPS", "Mobile"],
-    featured: false,
+    hasCaseStudy: false,
   },
 ];
 

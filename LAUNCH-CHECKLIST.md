@@ -77,9 +77,17 @@ Push to `main` after env vars are set in Vercel to deploy.
 
 ---
 
-## 7. Known gap (not blocking deploy)
+## 7. Contact form (Resend)
 
-The contact form is **UI-only** — it shows success but does not send email yet. Recruiters can still reach you via email/GitHub/LinkedIn from the Contact page.
+Set in Vercel (server-side only — never expose in `NEXT_PUBLIC_*`):
+
+| Variable | What to set |
+|---|---|
+| `RESEND_API_KEY` | [resend.com/api-keys](https://resend.com/api-keys) |
+| `RESEND_FROM_EMAIL` | `Portfolio <onboarding@resend.dev>` for testing, or a verified sender on your domain |
+| `CONTACT_TO_EMAIL` | Your inbox (e.g. `alejandro.diaz.sms@gmail.com`) |
+
+Redeploy after adding env vars. Test at `/contact`.
 
 ---
 

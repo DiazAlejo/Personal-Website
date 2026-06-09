@@ -19,13 +19,17 @@ interface ProjectCardProps {
 
 function ProjectCard({ project, variants }: ProjectCardProps) {
   const projectPath = getProjectPath(project.slug);
+  const ctaLabel =
+    project.hasCaseStudy === false
+      ? projectsPage.overviewCtaLabel
+      : projectsPage.ctaLabel;
 
   return (
     <motion.article variants={variants}>
       <Link
         href={projectPath}
         className="group block h-full rounded-xl focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring"
-        aria-label={`${projectsPage.ctaLabel}: ${project.title}`}
+        aria-label={`${ctaLabel}: ${project.title}`}
       >
         <Card
           variant="interactive"
@@ -58,7 +62,7 @@ function ProjectCard({ project, variants }: ProjectCardProps) {
             ) : null}
 
             <span className="mt-auto inline-flex items-center gap-element-xs text-small font-medium text-primary transition-[gap] duration-normal ease-default group-hover:gap-element-sm">
-              {projectsPage.ctaLabel}
+              {ctaLabel}
               <ArrowRight
                 aria-hidden="true"
                 className="size-4 transition-transform duration-normal ease-default group-hover:translate-x-0.5"

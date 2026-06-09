@@ -16,14 +16,14 @@ import { hoverPatterns } from "@/lib/hover";
 import { caseStudyRevealTransition } from "@/lib/transitions";
 import { cn } from "@/lib/utils";
 import { AnimatePresence, motion } from "framer-motion";
-import { CheckCircle2, Loader2 } from "lucide-react";
+import { AlertCircle, CheckCircle2, Loader2 } from "lucide-react";
 import { useId, useState } from "react";
 
 interface ContactFormProps {
   form: ContactPageContent["form"];
 }
 
-type FormStatus = "idle" | "submitting" | "success";
+type FormStatus = "idle" | "submitting" | "success" | "error";
 
 const initialValues: ContactFormValues = {
   name: "",
@@ -38,6 +38,7 @@ function ContactForm({ form }: ContactFormProps) {
   const [values, setValues] = useState<ContactFormValues>(initialValues);
   const [errors, setErrors] = useState<ContactFormErrors>({});
   const [status, setStatus] = useState<FormStatus>("idle");
+  const [submitError, setSubmitError] = useState<string | null>(null);
   const [touched, setTouched] = useState<
     Partial<Record<keyof ContactFormValues, boolean>>
   >({});
@@ -87,15 +88,40 @@ function ContactForm({ form }: ContactFormProps) {
     }
 
     setStatus("submitting");
+    setSubmitError(null);
 
-    await new Promise((resolve) => {
-      window.setTimeout(resolve, 900);
-    });
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          name: values.name.trim(),
+          email: values.email.trim(),
+          subject: values.subject.trim(),
+          message: values.message.trim(),
+        }),
+      });
 
-    setStatus("success");
-    setValues(initialValues);
-    setTouched({});
-    setErrors({});
+      const data = (await response.json().catch(() => null)) as {
+        error?: string;
+      } | null;
+
+      if (!response.ok) {
+        setStatus("error");
+        setSubmitError(data?.error ?? form.error.description);
+        return;
+      }
+
+      setStatus("success");
+      setValues(initialValues);
+      setTouched({});
+      setErrors({});
+    } catch {
+      setStatus("error");
+      setSubmitError(form.error.description);
+    }
   }
 
   function fieldErrorId(field: keyof ContactFormValues) {
@@ -170,7 +196,41 @@ function ContactForm({ form }: ContactFormProps) {
       </Typography>
 
       <AnimatePresence mode="wait">
-        {status === "success" ? (
+        {status === "error" ? (
+          <motion.div
+            key="error"
+            initial={prefersReducedMotion ? false : { opacity: 0, y: 8 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={prefersReducedMotion ? undefined : { opacity: 0, y: -8 }}
+            transition={{ duration: 0.25 }}
+            role="alert"
+            aria-live="assertive"
+            className="mt-element-xl flex flex-col items-start gap-element-md rounded-lg border border-destructive/30 bg-destructive/5 p-card"
+          >
+            <AlertCircle aria-hidden="true" className="size-8 text-destructive" />
+            <div>
+              <Typography variant="h3" as="p">
+                {form.error.title}
+              </Typography>
+              <Typography
+                variant="body"
+                className="mt-element-sm text-text-secondary"
+              >
+                {submitError ?? form.error.description}
+              </Typography>
+            </div>
+            <Button
+              type="button"
+              variant="secondary"
+              onClick={() => {
+                setStatus("idle");
+                setSubmitError(null);
+              }}
+            >
+              {form.error.retryLabel}
+            </Button>
+          </motion.div>
+        ) : status === "success" ? (
           <motion.div
             key="success"
             initial={prefersReducedMotion ? false : { opacity: 0, y: 8 }}
