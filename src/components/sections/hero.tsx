@@ -6,7 +6,7 @@ import { hero } from "@/content/hero";
 import { site } from "@/content/site";
 import { hoverPatterns } from "@/lib/hover";
 import { cn } from "@/lib/utils";
-import { ArrowRight, Download } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import Link from "next/link";
 
 function HeroBackground() {
@@ -80,8 +80,8 @@ function Hero() {
               className={hoverPatterns.elevation}
             >
               <Link href={hero.secondaryCta.href}>
-                <Download aria-hidden="true" />
                 {hero.secondaryCta.label}
+                <ArrowRight aria-hidden="true" />
               </Link>
             </Button>
           </div>
