@@ -49,9 +49,21 @@ Based on Austin Marchese's Project 3 framework:
 
 - [x] Clear description of who Alejo is (name, role, location, what he builds)
 - [x] Portfolio of actual shipped projects with descriptions
-- [x] "Ask AI about me" block at the footer — links to Claude, Perplexity, ChatGPT with pre-loaded prompt about Alejo
 - [x] llms.txt file at the root — structured data file for AI crawlers
 - [ ] Project descriptions written for AI readability (clear headings, no excessive visual formatting)
+
+---
+
+## Future: Embedded AI Chatbot (Deferred — 2026-06-30)
+
+Originally planned as an "Ask AI about me" footer block with outbound links to Claude/ChatGPT/Perplexity. Reconsidered: outbound links to external chat tools aren't a chatbot, they're just links. The real goal is a chatbot embedded directly on the site that answers questions about Alejo.
+
+**Plan when picked back up:**
+- Build a vector database from Alejo's personal data/info — only the subset that's safe to expose publicly
+- Use a small local model via Ollama to answer questions about Alejo, grounded in that vector database
+- Embed the chat UI directly in the site (not a redirect to a third-party chat tool)
+
+This is a bigger build than a maintenance item — treat it as its own project when it's time to start, not a quick roadmap checkbox.
 
 ---
 
