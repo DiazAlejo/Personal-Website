@@ -300,6 +300,7 @@ export interface ResumeContent {
 export interface AskAiProvider {
   name: string;
   baseUrl: string;
+  label: string;
 }
 
 export interface AskAiContent {

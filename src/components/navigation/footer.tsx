@@ -74,7 +74,7 @@ function Footer() {
               </ul>
             </nav>
 
-            <nav aria-label="Ask AI about me">
+            <nav aria-label={askAi.heading}>
               <Typography variant="small" className="mb-element-sm font-medium">
                 {askAi.heading}
               </Typography>
@@ -85,7 +85,7 @@ function Footer() {
                       href={buildAskAiUrl(provider.baseUrl, askAi.prompt)}
                       target="_blank"
                       rel="noopener noreferrer"
-                      aria-label={`Ask ${provider.name} about ${site.name}`}
+                      aria-label={provider.label}
                       onClick={() => trackAskAiClicked(provider.name, "footer")}
                       className="rounded-md text-small text-text-secondary transition-colors duration-normal ease-default hover:text-text-primary focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring"
                     >
