@@ -6,6 +6,8 @@ import { socials } from "@/content/socials";
 import { getCanonicalUrl } from "@/lib/seo/constants";
 import { NextResponse } from "next/server";
 
+export const dynamic = "force-static";
+
 function buildLlmsTxt(): string {
   const lines: string[] = [];
 
