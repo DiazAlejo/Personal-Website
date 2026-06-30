@@ -3,15 +3,10 @@
 import { Container } from "@/components/layout/container";
 import { Divider } from "@/components/ui/divider";
 import { Typography } from "@/components/ui/typography";
-import { askAi } from "@/content/ask-ai";
 import { navigation } from "@/content/navigation";
 import { site } from "@/content/site";
 import { socials } from "@/content/socials";
-import {
-  trackAskAiClicked,
-  trackExternalSocialClick,
-} from "@/lib/analytics/analytics";
-import { buildAskAiUrl } from "@/lib/ask-ai";
+import { trackExternalSocialClick } from "@/lib/analytics/analytics";
 import Link from "next/link";
 
 function Footer() {
@@ -68,28 +63,6 @@ function Footer() {
                       className="rounded-md text-small text-text-secondary transition-colors duration-normal ease-default hover:text-text-primary focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring"
                     >
                       {link.name}
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            </nav>
-
-            <nav aria-label={askAi.heading}>
-              <Typography variant="small" className="mb-element-sm font-medium">
-                {askAi.heading}
-              </Typography>
-              <ul className="flex flex-col gap-element-sm">
-                {askAi.providers.map((provider) => (
-                  <li key={provider.name}>
-                    <a
-                      href={buildAskAiUrl(provider.baseUrl, askAi.prompt)}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      aria-label={provider.label}
-                      onClick={() => trackAskAiClicked(provider.name, "footer")}
-                      className="rounded-md text-small text-text-secondary transition-colors duration-normal ease-default hover:text-text-primary focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring"
-                    >
-                      {provider.name}
                     </a>
                   </li>
                 ))}

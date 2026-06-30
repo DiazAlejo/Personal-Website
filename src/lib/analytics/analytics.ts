@@ -54,13 +54,6 @@ export function trackCaseStudyCompleted(projectSlug: string): void {
   });
 }
 
-export function trackAskAiClicked(provider: string, sourcePage: string): void {
-  void trackEvent(ANALYTICS_EVENTS.ASK_AI_CLICKED, {
-    provider,
-    source_page: sourcePage,
-  });
-}
-
 export function trackExternalSocialClick(
   linkName: string,
   sourcePage: string,

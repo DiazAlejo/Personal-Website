@@ -296,15 +296,3 @@ export interface ResumeContent {
     path: string;
   };
 }
-
-export interface AskAiProvider {
-  name: string;
-  baseUrl: string;
-  label: string;
-}
-
-export interface AskAiContent {
-  heading: string;
-  prompt: string;
-  providers: AskAiProvider[];
-}
