@@ -4,7 +4,8 @@ export type AnalyticsEventName =
   | "project_viewed"
   | "github_clicked"
   | "linkedin_clicked"
-  | "case_study_completed";
+  | "case_study_completed"
+  | "ask_ai_clicked";
 
 export interface AnalyticsEventProperties {
   resume_downloaded: {
@@ -24,6 +25,10 @@ export interface AnalyticsEventProperties {
   };
   case_study_completed: {
     project_slug: string;
+  };
+  ask_ai_clicked: {
+    provider: string;
+    source_page: string;
   };
 }
 

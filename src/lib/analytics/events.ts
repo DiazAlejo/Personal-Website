@@ -7,4 +7,5 @@ export const ANALYTICS_EVENTS = {
   GITHUB_CLICKED: "github_clicked",
   LINKEDIN_CLICKED: "linkedin_clicked",
   CASE_STUDY_COMPLETED: "case_study_completed",
+  ASK_AI_CLICKED: "ask_ai_clicked",
 } as const satisfies Record<string, AnalyticsEventName>;
