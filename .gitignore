@@ -43,3 +43,8 @@ next-env.d.ts
 
 # Sentry Config File
 .env.sentry-build-plugin
+
+# Internal Operating System vault overlay (personal planning docs — not part of the site)
+/build-log.md
+/next-actions.md
+/docs/
